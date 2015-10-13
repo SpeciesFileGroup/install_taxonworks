@@ -17,7 +17,7 @@ sudo apt-get install -y pkg-config imagemagick libmagickcore-dev libmagickwand-d
 sudo apt-get install -y tesseract-ocr
 
 # cmake
-sudo apt-get isntall -y cmake
+sudo apt-get install -y cmake
 
 # Rbenv  
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
