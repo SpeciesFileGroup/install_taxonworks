@@ -81,13 +81,15 @@ Run the test suite, you may see some failures, but the vast majority should pass
 rake 
 ```
 
+*Corresponding VM is configured to this point.*
+
 You should now be able to start your development server.
 
 ```
 rails s
 ```
 
-Navigate in your browser to 127.0.0.1:3000.
+Navigate in your browser to 127.0.0.1:3000.  To stop the development server return to the terminal window and type `ctrl-c`. 
 
 Optional
 -------- 

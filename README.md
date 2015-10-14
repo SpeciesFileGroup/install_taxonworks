@@ -1,7 +1,7 @@
 tw_provision
 ============
 
-This repository contains instructions for setup of development and production environments for [TaxonWorks][1].  It also overviews the software stack.
+This repository contains instructions for setup of [development](development/README.md) and [production](production/README.md) environments for [TaxonWorks][1].  It also overviews the software stack.
 
 Software stack
 --------------

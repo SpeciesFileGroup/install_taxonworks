@@ -9,8 +9,11 @@ Instructions per operating system are provided in their respectively named files
 VirtualBox (appliances)
 -----------------------
 
-Snapshots configured for development are available for use with [VirtualBox][1].
+Virtual machines configured for development are available for use with [VirtualBox][1].  
 
+Virtual machines are configured up to, but not including the `rake db:seed` stage (see [Ubuntu 14.04 instructions](ubuntu_14_04.md)).
+
+*Available VMs*
 * [Ubuntu 14.04][2] Warning, this is a 2.6GB file.
 
 Docker
