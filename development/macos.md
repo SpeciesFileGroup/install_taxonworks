@@ -16,21 +16,16 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ```
 When or if prompted click on install button.
 
-Follow through Homebrew
+Follow through Homebrew install process. When done, run the follwing commands on the terminal.
 
 ```
 brew install gnupg
-
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-```
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 brew install postgres
-
 brew install postgis 
-
 brew install imagemagick
-
 brew install cmake
 
 mkdir -p ~/Library/LaunchAgents    # This may already exist.   
