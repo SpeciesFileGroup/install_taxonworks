@@ -1,12 +1,11 @@
-Taxonworks development environment for Ubuntu 14.04
+TaxonWorks development environment for Ubuntu 14.04
 ===================================================
 
 Overview
 --------
-1) Assumes a clean install of the OS.
-2) Copy and paste each line, this is not intended to run as a shell script.
-3) Carefully read the instructions before each line before exectuting the line.
-
+1. Assumes a clean install of the OS.
+2. Copy and paste each line, this is not intended to run as a shell script.
+3. Carefully read the instructions before each line before exectuting the line.
 
 Instructions
 ------------
@@ -46,12 +45,11 @@ sudo apt-get install -y build-essential nodejs
 Install RVM
 ```
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
-You must now configure your terminal to use RVM.   
-
-On the terminal menu bar do this:
+Configure your terminal to use RVM, in the menu bar of the terminal do this:
 `Edit -> Profile preferences -> Title and Command -> click the option (turn on) 'Run command as login shell'`
 
 Close the current terminal open a new one.
@@ -63,7 +61,7 @@ git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
 
-You will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal  It will look something like: `rvm install 2.1.5`.
+When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal  It will look something like: `rvm install 2.1.5`.
 
 ```
 cd ..
