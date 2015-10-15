@@ -1,9 +1,9 @@
 PostgreSQL settings to get testing go faster
 ============================================
 
-This instructions allows for faster testing. Them basically trade database integrity in case of failures for speed. *This shouldn't be done for production databases.*
+This instructions allows for faster testing. Them basically trade database integrity in case of failures for speed. **This shouldn't be done for production databases.**
 
-You need to edit `/etc/postgresql/{your installed version here}/main/postgresql.conf
+You need to edit `/etc/postgresql/{your installed version here}/main/postgresql.conf`
 
 Locate the following settings and change thier values to match the ones here
 ```
