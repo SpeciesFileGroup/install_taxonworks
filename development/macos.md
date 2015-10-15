@@ -59,19 +59,30 @@ cd taxonworks
 ```
 
 Create a role for taxonworks
-createuser -s -d -P taxonworks_development # Supply a password or just press return twice for no password.
-cp config/database.yml.example config/database.yml # If you supplied a password in the previous step please edit database.yml accordingly.
+```
+createuser -s -d -P taxonworks_development
+cp config/database.yml.example config/database.yml
+```
+If you supplied a password in the previous step please edit database.yml accordingly.
 
+```
 rake db:create
+```
+If you see an error regarding Proj4 please run the next two commands and repeat previous step.
+```
+gem uninstall rgeo
+gem install rgeo
+```
 
-# If you see an error regarding Proj4 please run the next 3 commands, otherwise skip them
+Prepare the database
+```
+rake db:create
+rake db:migrate
+rake db:test:prepare
+```
 
-# gem uninstall rgeo
+Install [Firefox](https://www.firefox.com/) browser.
 
-# gem install rgeo
+Now `rake` should run tests.
 
-# rake db:create
-
-# Install Firefox browser if you don’t have it yet.
-
-rake db:migrate && rake db:test:prepare
+You may use `rake db:seed` to initialize the database for the development environment, start the server with `rails server` and visit http://localhost:3000/ to get started. Supply `person1@example.com` for user and `Abcd123!` for password.
