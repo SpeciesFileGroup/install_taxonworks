@@ -5,7 +5,7 @@ This instructions allows for faster testing. Them basically trade database integ
 
 You need to edit `/etc/postgresql/{your installed version here}/main/postgresql.conf`
 
-Locate the following settings and change thier values to match the ones here
+Locate the following settings and change their values to match the ones here
 ```
 fsync = off                             # turns forced synchronization on or off
 synchronous_commit = off                # synchronization level; on, off, or local
