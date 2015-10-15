@@ -1,2 +1,6 @@
+# ignore RubyMine files
+.idea/
+
+# ignore editor temp files
 *.swp
 *~
