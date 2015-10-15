@@ -112,6 +112,5 @@ git config --global merge.tool meld
 See also 
 --------
 
-* tuning_postgres_for_development.md
-
+* [tuning_postgres_for_development.md]('https://github.com/SpeciesFileGroup/tw_provision/blob/master/development/tuning_postgres_for_development.md')
 
