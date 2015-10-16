@@ -1,9 +1,9 @@
-PostgreSQL settings to get testing go faster
-============================================
+PostgreSQL settings to speed up testing
+=======================================
 
-This instructions allows for faster testing. Them basically trade database integrity in case of failures for speed. **This shouldn't be done for production databases.**
+These setttings makes running the specs suite faster. They basically trade database integrity in case of failures for speed. **This shouldn't be done for production databases.**
 
-You need to edit `/etc/postgresql/{your installed version here}/main/postgresql.conf`
+Edit your `postgresql.conf` file, in Ubuntu it can be found here at `/etc/postgresql/{your installed version here}/main/postgresql.conf`.
 
 Locate the following settings and change their values to match the ones here
 ```
