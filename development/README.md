@@ -14,13 +14,17 @@ Virtual machines configured for development are available for use with [VirtualB
 Virtual machines are configured up to, but not including the `rake db:seed` stage (see [Ubuntu 14.04 instructions](ubuntu_14_04.md)).
 
 *Available VMs*
-* [Ubuntu 14.04][2] Warning, this is a 2.6GB file.
+
+*Warning: ~2.6 GB downloads*
+* [Ubuntu 12.04 LTS][2] Warning, this is a 2.6GB file.
+* [Ubuntu 14.04 LTS][3] Warning, this is a 2.6GB file.
 
 Docker
 ------
 
-Some experiments with Docker exist. See [here][3].
+Some experiments with Docker exist. See [here][4].
 
-[1]: https://www.virtualbox.org/wiki/Downloads 
-[2]: http://taxonworks.org/virtual_box/TW_Ubuntu_14_04.ova
-[3]: https://github.com/SpeciesFileGroup/taxonworks/issues/4
+[1]: https://www.virtualbox.org/wiki/Downloads
+[2]: http://taxonworks.org/virtual_box/TW_Ubuntu_12_04.ova
+[3]: http://taxonworks.org/virtual_box/TW_Ubuntu_14_04.ova
+[4]: https://github.com/SpeciesFileGroup/taxonworks/issues/4
