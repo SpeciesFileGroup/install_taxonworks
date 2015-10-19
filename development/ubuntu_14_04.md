@@ -21,8 +21,17 @@ sudo reboot
 ```  
 
 Reopen a terminal.
+
+Add PostgreSQL source repository for apt-get.
 ```
-sudo apt-get install -y postgresql postgresql-contrib libgeos-dev libproj-dev postgis postgresql-9.3-postgis-2.1 libpq-dev cmake imagemagick libmagickwand-dev git meld
+echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+```
+
+Install required packages.
+```
+sudo apt-get install -y postgresql postgresql-contrib libgeos-dev libproj-dev postgis libpq-dev cmake imagemagick libmagickwand-dev git meld
 ```
 
 When prompted do not supply a password. See below, the password must match config/database.yml if provided.
@@ -32,7 +41,7 @@ sudo -u postgres createuser -s -d -P taxonworks_development
 
 Change permissions for posgresql, you are changing 'peer' to 'trust' for the matched line.
 ```
-sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/9.3/main/pg_hba.conf
+sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/9.4/main/pg_hba.conf
 sudo service postgresql restart
 ```
 
