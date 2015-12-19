@@ -54,8 +54,8 @@ rvm install 2.1.5
 Now it is time to install the required gems
 ```
 cd ..
-bundle
 cd taxonworks
+bundle
 ```
 
 Create a role for taxonworks
