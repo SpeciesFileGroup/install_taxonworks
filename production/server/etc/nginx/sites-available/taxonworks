@@ -1,0 +1,7 @@
+server {
+  listen 80 default_server;
+  server_name your.server.name.or.ip; 
+  passenger_enabled on;
+  passenger_app_env production;
+  root /var/www/taxonworks/current/public; 
+}
