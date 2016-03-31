@@ -62,6 +62,7 @@ Create a role for taxonworks
 ```
 createuser -s -d -P taxonworks_development
 cp config/database.yml.example config/database.yml
+cp config/secrets.yml.example config/secrets.yml
 ```
 If you supplied a password in the previous step please edit database.yml accordingly.
 
