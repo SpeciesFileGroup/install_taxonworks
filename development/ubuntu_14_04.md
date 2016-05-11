@@ -31,7 +31,7 @@ sudo apt-get update
 
 Install required packages.
 ```
-sudo apt-get install -y postgresql postgresql-contrib libgeos-dev libproj-dev postgis libpq-dev cmake imagemagick libmagickwand-dev git meld
+sudo apt-get install -y postgresql-9.4 postgresql-contrib-9.4 libgeos-dev libproj-dev postgresql-9.4-postgis-2.1 postgresql-9.4-postgis-2.1-scripts libpq-dev cmake imagemagick libmagickwand-dev git meld
 ```
 
 When prompted do not supply a password. See below, the password must match config/database.yml if provided.
@@ -47,7 +47,7 @@ sudo service postgresql restart
 
 Configure apt-get to point to newer Node packages
 ```
-curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y build-essential nodejs
 ```
 
@@ -81,8 +81,9 @@ gem install bundler
 bundle
 
 cp config/database.yml.example config/database.yml
+cp config/secrets.yml.example config/secrets.yml
 
-rake db:create && rake db:migrate && rake db:test:prepare 
+rake db:create && rake db:schema:load && rake db:test:prepare
 ```
 
 Run the test suite, you may see some failures, but the vast majority should pass.
