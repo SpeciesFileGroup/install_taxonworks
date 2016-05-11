@@ -15,7 +15,7 @@ Virtual machines are configured up to, but not including the `rake db:seed` stag
 
 *Available VMs*
 
-*Warning: ~2.6 GB downloads*
+*Warning: ~2.9 GB downloads*
 * [Ubuntu 12.04 LTS][2]
 * [Ubuntu 14.04 LTS][3]
 
