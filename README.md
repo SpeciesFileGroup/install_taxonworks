@@ -6,7 +6,7 @@ This repository contains instructions for setup of [development](development/REA
 Software stack
 --------------
 
-* Ruby 2.1.n
+* Ruby 2.3.n
 * Rails 4.2 
 * Rubygems
 * PostgreSQL with postgis extension
