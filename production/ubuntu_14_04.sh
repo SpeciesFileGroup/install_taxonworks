@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Target is Unbuntu 14.014
+# Target is Ubuntu 14.04
 
 sudo apt-get update
 
@@ -27,8 +27,8 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 
 source ~/.bashrc
 
-CONFIGURE_OPTS="--with-readline-dir=/usr/include/readline" rbenv install 2.1.5 
-rbenv global 2.1.5
+CONFIGURE_OPTS="--with-readline-dir=/usr/include/readline" rbenv install 2.3.1 
+rbenv global 2.3.1
 
 # Bundler
 sudo apt-get -y install bundler
