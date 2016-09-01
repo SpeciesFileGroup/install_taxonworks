@@ -58,7 +58,7 @@ cd taxonworks
 bundle
 ```
 
-Create a role for taxonworks
+Create a postgres role for taxonworks
 ```
 createuser -s -d -P taxonworks_development
 cp config/database.yml.example config/database.yml
