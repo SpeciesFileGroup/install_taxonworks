@@ -16,8 +16,12 @@ Virtual machines are configured up to, but not including the `rake db:seed` stag
 *Available VMs*
 
 *Warning: ~2.9 GB downloads*
-* [Ubuntu 12.04 LTS][2]
-* [Ubuntu 14.04 LTS][3]
+* [Ubuntu 14.04.5 LTS][2]
+* [Ubuntu 16.04.1 LTS][3]
+```
+User: taxonworks
+Pass: taxonworks
+```
 
 Docker
 ------
@@ -25,6 +29,6 @@ Docker
 Some experiments with Docker exist. See [here][4].
 
 [1]: https://www.virtualbox.org/wiki/Downloads
-[2]: http://taxonworks.org/virtual_box/TW_Ubuntu_12_04.ova
-[3]: http://taxonworks.org/virtual_box/TW_Ubuntu_14_04.ova
+[2]: http://taxonworks.org/virtual_box/TW_Ubuntu_14_04_5.ova
+[3]: http://taxonworks.org/virtual_box/TW_Ubuntu_16_04_1.ova
 [4]: https://github.com/SpeciesFileGroup/taxonworks/issues/4
