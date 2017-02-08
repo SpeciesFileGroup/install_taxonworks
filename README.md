@@ -9,11 +9,11 @@ Software stack
 * Ruby 2.3.n
 * Rails 4.2 
 * Rubygems
-* PostgreSQL with postgis extension
+* PostgreSQL 9.5+ with postgis 2.2 extension
 * ImageMagick
 * Rtesseract
 * Rbenv or [RVM][] (we've used both)
-* [Redis][4]
+* [Redis][4] (experimental use in batch imports)
 
 Development tools
 -----------------
