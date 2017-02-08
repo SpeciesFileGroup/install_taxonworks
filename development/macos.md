@@ -86,4 +86,6 @@ Install [Firefox](https://www.firefox.com/) browser.
 
 Now `rake` should run tests.
 
-You may use `rake db:seed` to initialize the database for the development environment, start the server with `rails server` and visit http://localhost:3000/ to get started. Supply `person1@example.com` for user and `Abcd123!` for password.
+You may use `rake db:seed` to initialize the database for the development environment, start the server with `rails server` and visit http://localhost:3000/ to get started.
+
+The username for the dummy account is user@example.com and password is taxonworks. Note, this account is a regular user and does not have admin privileges. For admin privileges use admin@example.com (same password).
