@@ -23,6 +23,8 @@ User: taxonworks
 Pass: taxonworks
 ```
 
+**IMPORTANT**: Before using TaxonWorks please go to its directory (*~/Projects/taxonworks*) and execute `git pull && npm install`.
+
 Docker
 ------
 
