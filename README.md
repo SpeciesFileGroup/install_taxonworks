@@ -1,10 +1,8 @@
-tw_provision
-============
+# tw_provision
 
 This repository contains instructions for setup of [development](development/README.md) and [production](production/README.md) environments for [TaxonWorks][1].  It also overviews the software stack.
 
-Software stack
---------------
+## Software stack
 
 * Ruby 2.3.n
 * Rails 4.2 
@@ -12,13 +10,23 @@ Software stack
 * PostgreSQL 9.5+ with postgis 2.2 extension
 * ImageMagick
 * Rtesseract
-* Rbenv or [RVM][] (we've used both)
+* Rbenv or [RVM][2] (we've used both)
 * [Redis][4] (experimental use in batch imports)
+* vue.js
+* jQuery
 
-Development tools
------------------
+## Development tools
 
-The core team is using RubyMine and/or VIM, with [brew][3], RVM, JIRA.  They use OS X and Ubuntu 14.04/12.04.
+The core team is using RubyMine and/or VIM, with [brew][3], RVM, JIRA.  They use OS X and Ubuntu 16.04/14.04.
+
+## Production tools
+
+* Docker
+* Kubernetes
+* Capistrano
+* Passenger
+* Nginx
+* Ubuntu 16.04
 
 [1]: https://github.com/SpeciesFileGroup/taxonworks
 [2]: http://rvm.io
