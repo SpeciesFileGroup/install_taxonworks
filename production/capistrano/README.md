@@ -1,14 +1,14 @@
-Deploying and initializing TaxonWorks
-=================================
+# Deploying and initializing TaxonWorks (Capistrano)
 
 Assumptions/prerequisites
 -------------------------
+
+* We are using [Capistrano.](https://github.com/capistrano/capistrano)
 * You have two machines, "deploy" and "server", in this example both are Ubuntu 14.04(+) LTS (not 14.10)
 * You are resonably capable with a command line environment*
-You have "provisioned" production with the pertinent shell script
+* You have "provisioned" production with the pertinent shell script
 * Your "deploy" machine has Ruby, bundler and rubygems installed
 * You can ssh without password to your "server"
-* We are using [Capistrano.](https://github.com/capistrano/capistrano) to deploy TaxonWorks
 * Instructions containing all cap values are variables that you must replace (e.g. USERNAME)
 * Configure "Server" first, "Deploy" second
 
