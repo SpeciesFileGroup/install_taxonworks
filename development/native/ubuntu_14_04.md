@@ -87,7 +87,7 @@ cd taxonworks
 gem install bundler
 
 bundle
-yarm
+yarn
 
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
