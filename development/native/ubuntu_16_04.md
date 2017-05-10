@@ -51,6 +51,14 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y build-essential nodejs
 ```
 
+Install Yarn
+```
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+sudo apt-get update && sudo apt-get install yarn
+```
+
 Install RVM
 ```
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
@@ -79,7 +87,7 @@ cd taxonworks
 gem install bundler
 
 bundle
-npm install
+yarn
 
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
@@ -109,6 +117,7 @@ rake
 You should now be able to start your development server.
 
 ```
+./bin/webpack-dev-server
 rails s
 ```
 

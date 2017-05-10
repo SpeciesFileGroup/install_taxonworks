@@ -30,6 +30,8 @@ brew install postgres
 brew install postgis 
 brew install imagemagick
 brew install cmake
+brew install node
+brew install yarn
 ```
 
 Set up PostgreSQL to start automatically.
@@ -51,11 +53,12 @@ At this point you may see a message regarding a particular version of Ruby. Inst
 rvm install 2.1.5
 ```
 
-Now it is time to install the required gems
+Now it is time to install the required gems and npm dependencies
 ```
 cd ..
 cd taxonworks
 bundle
+yarn
 ```
 
 Create a postgres role for taxonworks
@@ -86,6 +89,7 @@ Install [Firefox](https://www.firefox.com/) browser.
 
 Now `rake` should run tests.
 
-You may use `rake db:seed` to initialize the database for the development environment, start the server with `rails server` and visit http://localhost:3000/ to get started.
+You may use `rake db:seed` to initialize the database for the development environment, start the server with `rails server` and `./bin/webpack-dev-server`. 
+Visit http://localhost:3000/ to get started.
 
 The username for the dummy account is user@example.com and password is taxonworks. Note, this account is a regular user and does not have admin privileges. For admin privileges use admin@example.com (same password).
