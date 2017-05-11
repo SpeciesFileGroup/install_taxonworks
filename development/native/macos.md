@@ -1,13 +1,12 @@
-TaxonWorks development environment for MacOS X 
-==============================================
-Overview
---------
+# TaxonWorks development environment for MacOS X 
+
+## Overview
+
 1. Assumes a clean install of the OS.
 2. Copy and paste each line, this is not intended to run as a shell script.
 3. Carefully read the instructions before each line before exectuting the line.
 
-Instructions
-------------
+## Instructions
 
 Open a terminal.
 
@@ -78,7 +77,7 @@ gem uninstall rgeo
 gem install rgeo
 ```
 
-Prepare the database
+### Prepare the database
 ```
 rake db:create
 rake db:migrate
@@ -89,7 +88,18 @@ Install [Firefox](https://www.firefox.com/) browser.
 
 Now `rake` should run tests.
 
-You may use `rake db:seed` to initialize the database for the development environment, start the server with `rails server` and `./bin/webpack-dev-server`. 
+You may use `rake db:seed` to initialize the database for the development environment
+
+### Start the servers
+
+You need to have to servers running:
+
+Rails `rails server`
+
+Webpack `./bin/webpack-dev-server`
+
+### See the app
+
 Visit http://localhost:3000/ to get started.
 
 The username for the dummy account is user@example.com and password is taxonworks. Note, this account is a regular user and does not have admin privileges. For admin privileges use admin@example.com (same password).
