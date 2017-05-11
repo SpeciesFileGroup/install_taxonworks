@@ -94,9 +94,14 @@ You may use `rake db:seed` to initialize the database for the development enviro
 
 You need to have to servers running:
 
-Rails `rails server`
-
-Webpack `./bin/webpack-dev-server`
+Rails 
+```
+rails server
+```
+Webpack
+```
+./bin/webpack-dev-server
+```
 
 ### See the app
 
