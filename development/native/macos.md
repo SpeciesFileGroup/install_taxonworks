@@ -92,7 +92,7 @@ You may use `rake db:seed` to initialize the database for the development enviro
 
 ### Start the servers
 
-You need to have to servers running:
+You need to have two servers running:
 
 Rails 
 ```
