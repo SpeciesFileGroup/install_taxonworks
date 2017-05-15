@@ -1,4 +1,4 @@
-# tw_provision
+# Install TaxonWorks
 
 This repository contains instructions for setup of [development](development/README.md) and [production](production/README.md) environments for [TaxonWorks][1].  It also overviews the software stack.
 
@@ -10,7 +10,7 @@ This repository contains instructions for setup of [development](development/REA
 * PostgreSQL 9.5+ with postgis 2.2 extension
 * ImageMagick
 * Rtesseract
-* Rbenv or [RVM][2] (we've used both)
+* Rbenv or [RVM][2] 
 * [Redis][4] (experimental use in batch imports)
 * vue.js
 * jQuery
@@ -27,6 +27,8 @@ The core team is using RubyMine and/or VIM, with [brew][3], RVM, JIRA.  They use
 * Passenger
 * Nginx
 * Ubuntu 16.04
+* webpack
+* Node
 
 [1]: https://github.com/SpeciesFileGroup/taxonworks
 [2]: http://rvm.io
