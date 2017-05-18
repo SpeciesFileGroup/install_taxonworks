@@ -1,7 +1,3 @@
-## TODO
-
-* Push `sfgrp/taxonworks-development` to docker hub based off Dockerfile.development.  Until then `docker-compose build` to start.
-
 # Overview
 
 * `Dockerfile.development` is configured to use with `docker-compose`
@@ -19,21 +15,9 @@ _Assumes you have taxonworks cloned, and docker started. This is an empty (no da
 * ... do stuff ...
 * `docker-compose down`
 
-## Notes
+# Docker notes
 
-* vi in container acts funny, apt install vim as a work around 
-# docker-compose
-
-Using `docker-compose` starts containers that reference your local filesystem referencing `Dockerfile.development`.  
-
-
-## Basic use
-
-* [https://docs.docker.com/](Docker docs)
-
-* `docker-compose build`
-* `docker-compose down`
-* `docker-compose up`
+* [Docker docs](https://docs.docker.com/)
 * `docker ps`
 * `docker exec -it taxonworks_app_1 bash`
 * `docker stop 3dc4293eg17e`  
