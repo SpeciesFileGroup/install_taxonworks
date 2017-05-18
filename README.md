@@ -1,6 +1,20 @@
 # Install TaxonWorks
 
-This repository contains instructions for setup of [development](development/README.md) and [production](production/README.md) environments for [TaxonWorks][1].  It also overviews the software stack.
+This repository contains instructions for setup of [development](development/README.md) and [production](production/README.md) environments for [TaxonWorks][1]. A  It also overviews the software stack.
+
+# Quick start
+
+If you want to experiment with TaxonWorks before diving deeper it only takes a few steps to get it running:
+
+* Install a virtual machine manager (VirutalBox) 
+* Install Docker
+* Clone the source code
+* `docker-compose up`
+* Navigate your browser to `127.0.0.1`:<determine port>
+
+# Next steps
+
+* STUB
 
 ## Software stack
 
