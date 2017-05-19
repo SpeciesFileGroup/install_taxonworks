@@ -6,6 +6,7 @@
 * `git clone git@github.com:SpeciesFileGroup/taxonworks.git`
 * `cd taxonworks`
 * `cp config/database.yml.docker.compose config/database.yml` 
+* `docker-compose up`
 *  Browse to `127.0.0.1:3000`
 
 Take the [next steps here](docker/README.md).
