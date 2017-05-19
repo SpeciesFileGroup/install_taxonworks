@@ -1,6 +1,6 @@
 # Overview
 
-* docker-compose is configured with `Dockerfile.development`
+* `docker-compose` is configured with `Dockerfile.development`
 
 # Development quick start
 
