@@ -57,8 +57,15 @@ Now it is time to install the required gems and npm dependencies
 ```
 cd ..
 cd taxonworks
+gem install bundle
 bundle
 yarn
+```
+
+If you an error regarding rmagick, please run the next two commands and run bundle again:
+```
+brew uninstall imagemagick
+$ brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/6f014f2b7f1f9e618fd5c0ae9c93befea671f8be/Formula/imagemagick.rb
 ```
 
 Create a postgres role for taxonworks
