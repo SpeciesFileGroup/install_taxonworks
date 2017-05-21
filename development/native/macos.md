@@ -44,12 +44,13 @@ Close the terminal and open a new one.
 Get TaxonWorks source code into the computer.
 ```
 mkdir Projects
+cd Projects
 git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
 At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the command provided in the terminal. It will look something like this:
 ```
-rvm install 2.1.5
+rvm install 2.3.3
 ```
 
 Now it is time to install the required gems and npm dependencies
