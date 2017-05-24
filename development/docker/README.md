@@ -63,7 +63,7 @@ The database persists across use.  By default it is *not* the same as database d
 
 ## Drop and recreate the database to an empty state
 
-* Ensure the app is not running (stop a container above)
+* Ensure the app (usually `taxonworks_app_1`) is not running (_Stop a container_), the database container needs to be running.
 * `psql -U postgres -p 15432 -h 0.0.0.0 taxonworks_development`
 * `drop database taxonworks_development`
 * `create database taxonworks_development`
