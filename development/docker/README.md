@@ -7,7 +7,6 @@
 You can quickly start developing or testing against the API with minimal configuration.  The following assumes you have cloned the taxonworks source and have docker and its dependencies (like a VM) installed.  
 
 * `cd /path/to/taxonworks`
-* `cp config/database.yml.docker.compose config/database.yml` 
 * `docker-compose build`
 * `docker-compose up`
 * browse to `127.0.0.1:3000`
