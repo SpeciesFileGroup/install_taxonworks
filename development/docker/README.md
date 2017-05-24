@@ -11,7 +11,7 @@ You can quickly start developing or testing against the API with minimal configu
 * `docker-compose up`
 * browse to `127.0.0.1:3000`
 * ... you chould see the logon window, minimally, to logon you need to _Create a user_ ...
-* `docker-compose down`
+* Use `docker-compose down` in another local terminal to shutdown.
 
 # General use 
 
