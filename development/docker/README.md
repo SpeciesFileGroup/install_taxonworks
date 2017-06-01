@@ -8,6 +8,7 @@ You can quickly start developing or testing against the API with minimal configu
 
 * `cd /path/to/taxonworks`
 * `cp config/database.yml.docker.compose config/database.yml`
+* `cp config/secrets.yml.example config/secrets.yml`
 * `docker-compose build`
 * `docker-compose up`
 * browse to `127.0.0.1:3000`
