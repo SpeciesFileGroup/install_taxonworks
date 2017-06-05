@@ -1,6 +1,4 @@
-# Overview
 
-* `docker-compose` is configured with `Dockerfile.development`
 
 # Development quick start
 
@@ -13,9 +11,9 @@ You can quickly start developing or testing against the API with minimal configu
 * You chould see the logon window. Minimally, you need to now _Create a user_ or _Restore a database dump_
 * Use `docker-compose down` in another local terminal to shutdown.
 
-# General use 
-
-See [Docker docs](https://docs.docker.com/).
+# Overview
+* See [documentation for Docker](https://docs.docker.com/).
+* In TaxonWorks `docker-compose` is configured to use  [Dockerfile.development](https://raw.githubusercontent.com/SpeciesFileGroup/taxonworks/development/Dockerfile.development)
 
 ## Get the names and IDs of your containers
 
