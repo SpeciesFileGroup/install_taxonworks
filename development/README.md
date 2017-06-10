@@ -2,14 +2,8 @@
 # Quickstart
 
 * Install [Docker](https://www.docker.com/get-docker)
-* Install a virtual machine manager (e.g. [Virtual Box](https://www.virtualbox.org/wiki/Downloads))
-* `git clone git@github.com:SpeciesFileGroup/taxonworks.git`
-* `cd taxonworks`
-* `cp config/database.yml.docker.compose config/database.yml` 
-* `docker-compose up`
-*  Browse to `127.0.0.1:3000`
-
-Take the [next steps here](docker/README.md).
+* Clone the source code `git clone https://github.com/SpeciesFileGroup/taxonworks.git`
+* Follow the [instructions for using docker](docker/README.md).
 
 # Development environments
 
