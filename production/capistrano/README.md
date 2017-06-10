@@ -3,7 +3,7 @@
 Assumptions/prerequisites
 -------------------------
 
-* We are using [Capistrano.](https://github.com/capistrano/capistrano)
+* You are deploying with [Capistrano.](https://github.com/capistrano/capistrano)
 * You have two machines, "deploy" and "server", in this example both are Ubuntu 14.04(+) LTS (not 14.10)
 * You are resonably capable with a command line environment*
 * You have "provisioned" production with the pertinent shell script
