@@ -27,9 +27,9 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 Next, you should install a few brew packages.
 ```
 brew install postgres
-brew install postgis 
-brew install imagemagick
+brew install postgis
 brew install cmake
+brew install imagemagick@6
 brew install node
 brew install yarn
 ```
@@ -42,49 +42,33 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
 Close the terminal and open a new one. This will use the new environment created by the previous instructions.
 
-Get TaxonWorks source code into the computer.
+Download the source code from Github:
+
 ```
-mkdir Projects # This directory can be named whatever you please...
-cd Projects
 git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
+
 At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the command provided in the terminal. It will look something like this:
 ```
 rvm install 2.4.1
 ```
 
-Now it is time to install the required gems and npm dependencies
+Now it is time to install the required gems and npm dependencies.  Inside the `taxonworks` directory do
 ```
-cd ..
-cd taxonworks
 gem install bundle
 bundle
 yarn
 ```
 
-If you an error regarding rmagick, please run the next two commands and run bundle again:
-```
-brew uninstall imagemagick
-brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/6f014f2b7f1f9e618fd5c0ae9c93befea671f8be/Formula/imagemagick.rb
-```
-
 Create a postgres role for taxonworks
 ```
-createuser -s -d -P taxonworks_development
+createuser -s -d -P taxonworks_development (requests password) <- provide alternative for existing user)
+
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
 ```
 If you supplied a password in the previous step please edit database.yml accordingly.
-
-```
-rake db:create
-```
-If you see an error regarding Proj4 please run the next two commands and repeat previous step.
-```
-gem uninstall rgeo
-gem install rgeo
-```
 
 ### Prepare the database
 ```
@@ -97,7 +81,7 @@ Install [Firefox](https://www.firefox.com/) browser.
 
 Now `rake` should run tests.
 
-You may use `rake db:seed` to initialize the database for the development environment
+At this point you may use `rake db:seed` to initialize the database for the development environment, or, more typically, you'll load a snapshot of a dumped copy of the data with `rake tw:db:restore file=/path/to/dump.sql`.
 
 ### Start the servers
 
@@ -116,4 +100,23 @@ Webpack
 
 Visit http://localhost:3000/ to get started.
 
-The username for the dummy account is user@example.com and password is taxonworks. Note, this account is a regular user and does not have admin privileges. For admin privileges use admin@example.com (same password).
+The username for the dummy account is `user@example.com` and password is `taxonworks`. Note, this account is a regular user and does not have admin privileges. For admin privileges use `admin@example.com` with the password `taxonworks`.
+
+## Troubleshooting
+
+### Error regarding rmagick
+
+rmagick currently requires a previous version of image magick (see the @6 above).
+If you an error regarding rmagick, please run the next two commands and run bundle again:
+```
+brew uninstall imagemagick
+brew install imagemagick@6
+```
+
+### Proj4 error
+
+If you see an error regarding Proj4 please run the next two command and then rerun the step the first raised the error.
+```
+gem uninstall rgeo
+gem install rgeo
+```
