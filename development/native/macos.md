@@ -9,7 +9,7 @@
 ## Instructions
 Start by opening a terminal window. The following instructions should be executed within it.
 
-Install Homebrew, the MAC OS application consturction utility.
+Install Homebrew - a package manager utility for macOS.
 
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -24,7 +24,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
-Next, you should install a few brew packages.
+Next, you should install following brew packages.
 ```
 brew install postgres
 brew install postgis
