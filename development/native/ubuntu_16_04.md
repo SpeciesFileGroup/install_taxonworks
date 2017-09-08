@@ -146,5 +146,5 @@ See also
 --------
 
 * [tuning_postgres_for_development.md][1]
- 
-[1]: https://github.com/SpeciesFileGroup/tw_provision/blob/master/development/tuning_postgres_for_development.md
+
+[1]: https://github.com/SpeciesFileGroup/install_taxonworks/blob/master/development/native/tuning_postgres_for_development.md
