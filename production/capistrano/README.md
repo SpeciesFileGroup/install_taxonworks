@@ -34,7 +34,7 @@ sudo chown -R USERNAME:deployers /var/www
 sudo chmod -R g+w /var/www
 ```
 
-####Configure postgres
+#### Configure postgres
 ```
 sudo -u postgres psql postgres
 
