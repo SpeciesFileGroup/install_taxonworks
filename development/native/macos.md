@@ -51,7 +51,7 @@ cd taxonworks
 
 At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the command provided in the terminal. It will look something like this:
 ```
-rvm install 2.4.1
+rvm install 2.4.2
 ```
 
 Now it is time to install the required gems and npm dependencies.  Inside the `taxonworks` directory do
