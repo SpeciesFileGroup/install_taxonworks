@@ -31,7 +31,7 @@ sudo apt-get update
 
 Install required packages.
 ```
-sudo apt-get install -y postgresql-9.5 postgresql-contrib-9.5 libgeos-dev libproj-dev postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-2.2-scripts libpq-dev cmake imagemagick libmagickwand-dev git meld
+sudo apt-get install -y postgresql-9.5 postgresql-contrib-9.5 libgeos-dev libproj-dev postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-2.2-scripts libpq-dev cmake imagemagick libmagickwand-dev git meld curl
 ```
 
 When prompted do not supply a password. See below, the password must match config/database.yml if provided.
