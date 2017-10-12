@@ -7,8 +7,13 @@ Overview
 2. Copy and paste each line, this is not intended to run as a shell script.
 3. Carefully read the instructions before each line before exectuting the line.
 
-Instructions
-------------
+System Requirements (Recommended)
+---------------------------------
+1. Memory: 4 GB RAM
+2. Storage: 20 GB (when testing with Sandbox data)
+
+Installation Instructions
+-------------------------
 
 Open a terminal.
 ```
@@ -114,13 +119,24 @@ rake
 
 *Corresponding VM is configured to this point.*
 
-You should now be able to start your development server.
+If you receive any migration related errors when you run test suite, use the following command before proceeding ahead:
+```
+rake db:migrate
+```
+Now proceed ahead to deploy the development server.
 
+Deploy the development server
+------------------------------
+
+Compile the Webpack development server using the following command:
 ```
 ./bin/webpack-dev-server
-rails s
 ```
 
+On successful compilation of Webpack development server, start Rails server:
+```
+rails s
+```
 Navigate in your browser to 127.0.0.1:3000.  To stop the development server return to the terminal window and type `ctrl-c`. 
 
 Optional
