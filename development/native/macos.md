@@ -104,6 +104,16 @@ The username for the dummy account is `user@example.com` and password is `taxonw
 
 ## Troubleshooting
 
+### Webpack out of memory
+
+If you get an error `FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory` increase the memory size for node.
+We recommend a npm package to do it automatically.
+
+```
+npm install -g increase-memory-limit
+increase-memory-limit
+```
+
 ### Error regarding rmagick
 
 rmagick currently requires a previous version of image magick (see the @6 above).

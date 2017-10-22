@@ -1,6 +1,6 @@
 # Overview
 
-* Ruby >~ 2.3.3
+* Ruby >~ 2.4.2
 * Webpack
 * Node
 * Rails 4.2 
