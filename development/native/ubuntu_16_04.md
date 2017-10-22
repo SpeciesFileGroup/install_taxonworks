@@ -164,3 +164,15 @@ See also
 * [tuning_postgres_for_development.md][1]
 
 [1]: https://github.com/SpeciesFileGroup/install_taxonworks/blob/master/development/native/tuning_postgres_for_development.md
+
+## Troubleshooting
+
+### Webpack out of memory
+
+If you get an error `FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory` increase the memory size for node.
+We recommend a npm package to do it automatically.
+
+```
+npm install -g increase-memory-limit
+increase-memory-limit
+```
