@@ -3,9 +3,9 @@
 * Ruby >~ 2.4.2
 * Webpack
 * Node
-* Rails 4.2 
+* Rails 5.2 
 * PostgreSQL 9.5+ with postgis 2.2 extension
-* ImageMagick
+* ImageMagick 6
 * Rtesseract
 * Rbenv/RVM
 * [Vue.js](https://vuejs.org/)
