@@ -37,3 +37,8 @@ You might also:
 * check that you're running the required Ruby `which ruby`
 * reinstall Ruby as per instructions
 * reinstall your ruby gems
+
+## When you switch between docker and native environments
+
+* nuke node modules `rm -rf node_modules`
+* redo `npm install`
