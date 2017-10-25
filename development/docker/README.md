@@ -2,7 +2,7 @@
 
 # Development quick start
 
-You can quickly start developing or testing against the API with minimal configuration.  The following assumes you have cloned the taxonworks source and have docker and its dependencies (like a VM) installed.  
+You can quickly start developing or testing against the API with minimal configuration.  The following assumes you have [Docker](https://www.docker.com/get-docker) and its dependencies installed and running.
 * `git clone https://github.com/SpeciesFileGroup/taxonworks.git` - to clone repository in directory of your choice
 * `cd /path/to/taxonworks`
 * `docker-compose build`
