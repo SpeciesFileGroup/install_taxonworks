@@ -2,7 +2,6 @@
 # Quickstart
 
 * Install [Docker](https://www.docker.com/get-docker)
-* Clone the source code `git clone https://github.com/SpeciesFileGroup/taxonworks.git`
 * Follow the [instructions for using docker](docker/README.md).
 
 # Development environments
