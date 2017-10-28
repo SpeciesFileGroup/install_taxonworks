@@ -9,7 +9,7 @@ You can quickly start developing or testing against the API with minimal configu
 * `docker-compose up`
 *  browse to `127.0.0.1:3000` if you can see something similar to below in your terminal window:
     ```
-    app_1      | [2017-10-22 02:02:03] INFO  WEBrick::HTTPServer#start: pid=25 port=3000
+    webpack_1  | webpack: Compiled successfully.
     ```
 * You should see the logon window. Minimally, you need to now _Create a user_ or _Restore a database dump_
 * Wait for a while if the logon window does not load not load quickly. 
