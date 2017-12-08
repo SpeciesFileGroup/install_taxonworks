@@ -7,7 +7,9 @@
 3. Copy and paste each line. These instructions are not intended to run as a shell script.
 
 ## Instructions
-Start by opening a terminal window. The following instructions should be executed within it.
+Start by getting `Xcode` from the App Store, and open it.
+
+Next, open a terminal window. The following instructions should be executed within it.
 
 Install Homebrew - a package manager utility for macOS.
 
@@ -23,22 +25,31 @@ brew install gnupg
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
-
-Next, you should install following brew packages.
+You will need to get a new terminal window to make `rvm` available. 
+In this new terminal window, you should install following brew packages.
 ```
 brew install postgres
+```
+
+Set up PostgreSQL to start automatically. Run this:
+```
+brew services start postgres
+```
+or find or create your local LaunchAgents directory. Then, make a link to be executed when you log on. Last, launch the PostgreSql server for the first time.
+```
+mkdir -p ~/Library/LaunchAgents    # This may already exist.   
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
+You will need the postgres server running for some of the following instructions. 
+Continue `brew`ing required pieces...
+
+```
 brew install postgis
 brew install cmake
 brew install imagemagick@6
 brew install node
 brew install yarn
-```
-
-Set up PostgreSQL to start automatically. First, find or create your local LaunchAgents directory. Next, make a link to be executed when you log on. Last, launch the PostgreSql server for the first time. You will need the server running for some of the following instructions.
-```
-mkdir -p ~/Library/LaunchAgents    # This may already exist.   
-ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
 Close the terminal and open a new one. This will use the new environment created by the previous instructions.
 
@@ -57,6 +68,9 @@ rvm install 2.4.2
 Now it is time to install the required gems and npm dependencies.  Inside the `taxonworks` directory do
 ```
 gem install bundle
+```
+(You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so, execute `find /usr/local -name MagickCore.pc`, and use it in the following line: `PKG_CONFIG_PATH='(use what you got as a result of the 'find' line)' gem install rmagick`)
+```
 bundle
 yarn
 ```
