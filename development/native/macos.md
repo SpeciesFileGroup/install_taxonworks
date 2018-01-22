@@ -60,9 +60,9 @@ git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
 
-At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the command provided in the terminal. It will look something like this:
+At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the command provided in the terminal. It will look something like this (for more, e.g. to set as default [see here](https://rvm.io/rubies/default)):
 ```
-rvm install 2.4.2
+rvm install 2.4.3
 ```
 
 Now it is time to install the required gems and npm dependencies.  Inside the `taxonworks` directory do
