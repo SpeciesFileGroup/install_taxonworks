@@ -1,6 +1,6 @@
 # Deploying TaxonWorks on Kubernetes 
 
-_At present tntended to trigger memory rather than spell it out._
+_At present intended to trigger memory rather than spell it out._
 
 ## Kubernetes
 
