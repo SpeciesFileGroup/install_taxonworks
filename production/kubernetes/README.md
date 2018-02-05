@@ -49,7 +49,7 @@ _At present tntended to trigger memory rather than spell it out._
 
 The docker build uses `Dockerfile`.  Ultimately it will track the [master branch](https://github.com/SpeciesFileGroup/taxonworks/tree/master).
 
-Containers are found at [https://hub.docker.com/u/sfgrp/][https://hub.docker.com/u/sfgrp/]. At present numerically tagged versions are production, and :dev is the development snapshot.  Neither is automatically updated yet.
+Containers are found at [https://hub.docker.com/u/sfgrp/](https://hub.docker.com/u/sfgrp/). At present numerically tagged versions are production, and :dev is the development snapshot.  Neither is automatically updated yet.
 
 * `docker build --rm -t sfgrp/taxonworks:0.0.x .` 
 * `docker push sfgrp/taxonworks:0.0.x`
