@@ -39,9 +39,11 @@ _At present tntended to trigger memory rather than spell it out._
 * Create namespace for tw in minikube `kubectl create namespace tw`
 * Set context: (run once, OS X version):
 
-    #!/bin/bash
-    export CONTEXT=$(kubectl config view | awk '/current-context/ {print $2}')
-    kubectl config set-context $CONTEXT --namespace=tw
+```bash
+#!/bin/bash
+export CONTEXT=$(kubectl config view | awk '/current-context/ {print $2}')
+kubectl config set-context $CONTEXT --namespace=tw
+```
 
 ## Docker 
 
