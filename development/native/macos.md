@@ -135,6 +135,7 @@ If you an error regarding rmagick, please run the next two commands and run bund
 ```
 brew uninstall imagemagick
 brew install imagemagick@6
+export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.9-36/lib/pkgconfig
 ```
 
 ### Proj4 error
