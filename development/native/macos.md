@@ -138,10 +138,15 @@ brew install imagemagick@6
 export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.9-36/lib/pkgconfig
 ```
 
+To test succesfull install run `identify` in your terminal, if you get the help docs you should be ok.  If brew tells you the package is installed but `identify` does not work try `brew link imagemagick@6 --force`.
+
 ### Proj4 error
 
-If you see an error regarding Proj4 please run the next two command and then rerun the step the first raised the error.
+If you see an error regarding Proj4 rebuilding it against the latest rgeo-proj4 should resolve the issue, execution order matters! 
+
 ```
 gem uninstall rgeo
-gem install rgeo
+gem uninstall rgeo-proj4
+gem install rgeo-proj4
+bundle install
 ```
