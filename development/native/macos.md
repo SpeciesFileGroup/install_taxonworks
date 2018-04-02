@@ -5,9 +5,11 @@
 1. Assumes a clean install of the OS.
 2. Carefully read the instructions for each line prior to exectuting each line.
 3. Copy and paste each line. These instructions are not intended to run as a shell script.
+4. TaxonWorks developers generally adopt the convention of creating a `src` directory under their home directory into
+ which the taxonworks repository will be cloned.
 
 ## Instructions
-Start by getting `Xcode` from the App Store, and open it.
+Start by getting `Xcode` from the App Store, and install/open it.
 
 Next, open a terminal window. The following instructions should be executed within it.
 
@@ -16,9 +18,9 @@ Install Homebrew - a package manager utility for macOS.
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-If/when prompted, click on install button. Follow through with the Homebrew install process. 
+If/when prompted, take the action to continue to install. Follow through with the Homebrew install process. 
 
-After Homebrew, install RVM, the Ruby version manager. This consists of installing the GNU Privacy Guard (gnupg), getting the public key for RVM, and installing RVM. The particular invocation below also installes the latest stable version of Ruby.
+After Homebrew, install RVM, the Ruby version manager. This consists of installing the GNU Privacy Guard (gnupg), getting the public key for RVM, and installing RVM. The particular invocation below also installs the latest stable version of Ruby.
 
 ```
 brew install gnupg
@@ -26,7 +28,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 You will need to get a new terminal window to make `rvm` available. 
-In this new terminal window, you should install following brew packages.
+In this new terminal window, you should install the following brew packages.
 ```
 brew install postgres
 ```
@@ -48,6 +50,7 @@ Continue `brew`ing required pieces...
 brew install postgis
 brew install cmake
 brew install imagemagick@6
+brew link imagemagick@6 --force
 brew install node
 brew install yarn
 ```
@@ -56,20 +59,25 @@ Close the terminal and open a new one. This will use the new environment created
 Download the source code from Github:
 
 ```
+cd src  # or wherever you otherwise elected to put the project source code
 git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
 
-At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the command provided in the terminal. It will look something like this (for more, e.g. to set as default [see here](https://rvm.io/rubies/default)):
+At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the commands provided below in the terminal. It will look something like this (for more, e.g. to set as default [see here](https://rvm.io/rubies/default)):
 ```
 rvm install 2.4.3
+rvm --default 2.4.3
 ```
+This installs the Ruby version currently being used, and makes it the default.  At this point,
+ you can verify this with `rvm list` which will indicate all Ruby versions managed by RVM and their status.
+
 
 Now it is time to install the required gems and npm dependencies.  Inside the `taxonworks` directory do
 ```
 gem install bundle
 ```
-(You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so, execute `find /usr/local -name MagickCore.pc`, and use it in the following line: `PKG_CONFIG_PATH='(use what you got as a result of the 'find' line)' gem install rmagick`)
+(You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so, execute `find /usr/local -name MagickCore.pc`, and use it in the following line: `PKG_CONFIG_PATH='<remove the file name and extension from what you got as a result of the 'find' line and use that>' gem install rmagick`)
 ```
 bundle
 yarn
@@ -89,6 +97,7 @@ If you supplied a password in the previous step please edit database.yml accordi
 rake db:create
 rake db:migrate
 rake db:test:prepare
+rake db:seed:development
 ```
 
 Install [Firefox](https://www.firefox.com/) browser.
@@ -101,18 +110,22 @@ At this point you may use `rake db:seed` to initialize the database for the deve
 
 You need to have two servers running:
 
+Webpack (must run in a separate terminal window -- use with caution)
+```
+./bin/webpack-dev-server
+```
 Rails 
 ```
 rails server
 ```
-Webpack
-```
-./bin/webpack-dev-server
-```
 
 ### See the app
 
-Visit http://localhost:3000/ to get started.
+Visit http://localhost:3000/ to get started.  You should see the sign-in page.  Since there are no `users` at this point, these must be provisioned.
+```apple js
+rails console
+rake db:seed
+```
 
 The username for the dummy account is `user@example.com` and password is `taxonworks`. Note, this account is a regular user and does not have admin privileges. For admin privileges use `admin@example.com` with the password `taxonworks`.
 
