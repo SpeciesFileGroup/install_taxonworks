@@ -97,7 +97,7 @@ If you supplied a password in the previous step please edit database.yml accordi
 rake db:create
 rake db:migrate
 rake db:test:prepare
-rake db:seed:development
+rake db:seed:development project_id=1
 ```
 
 Install [Firefox](https://www.firefox.com/) browser.
