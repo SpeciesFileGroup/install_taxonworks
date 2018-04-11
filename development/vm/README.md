@@ -17,6 +17,6 @@ Pass: taxonworks
 **IMPORTANT**: Before using TaxonWorks please go to its directory (*~/Projects/taxonworks*) and execute `git pull && npm install`.
 
 [1]: https://www.virtualbox.org/wiki/Downloads
-[2]: http://taxonworks.org/virtual_box/TW_Ubuntu_14_04_5.ova
-[3]: http://taxonworks.org/virtual_box/TW_Ubuntu_16_04_1.ova
+[2]: http://vm.taxonworks.org/virtual_box/TW_Ubuntu_14_04_5.ova
+[3]: http://vm.taxonworks.org/virtual_box/TW_Ubuntu_16_04_1.ova
 [4]: https://github.com/SpeciesFileGroup/taxonworks/issues/4
