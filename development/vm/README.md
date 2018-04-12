@@ -7,8 +7,8 @@ Virtual machines are configured up to, but not including the `rake db:seed` stag
 *Available VMs*
 
 *Warning: ~2.9 GB downloads*
-* [Ubuntu 14.04.5 LTS][2]
-* [Ubuntu 16.04.1 LTS][3]
+* [Ubuntu 14.04.5 LTS][2] md5 `05501bd9aaa1b3041d21794f87166849`
+* [Ubuntu 16.04.1 LTS][3] md5 `25c66c8f6cd572ed10543087d3589f07`
 ```
 User: taxonworks
 Pass: taxonworks
