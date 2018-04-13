@@ -12,7 +12,7 @@ You can quickly start developing or testing against the API with minimal configu
     ```
     webpack_1  | webpack: Compiled successfully.
     ```
-* You should see the logon window. Minimally, you need to now _Create a user_ or _Restore a database dump_
+* You should see the logon window. Minimally, you now need to _Create a user_ or _Restore a database dump_
 * Wait for a while if the logon window does not load not load quickly. 
 * Use `ctrl-c` or `docker-compose down` in another local terminal to shutdown
 
