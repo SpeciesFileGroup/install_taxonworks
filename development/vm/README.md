@@ -1,22 +1,25 @@
 # VirtualBox (appliances)
 
-Virtual machines configured for development are available for use with [VirtualBox][1].  
+Virtual machines configured for development are available for use with [VirtualBox][1]. 
 
-Virtual machines are configured up to, but not including the `rake db:seed` stage (see [Ubuntu 14.04 instructions](ubuntu_14_04.md)).
+Virtual machines are configured up to, but not including the `rake db:seed` stage (see [Ubuntu 14.04][5] & [Ubuntu 16.04][6] instructions).
 
 *Available VMs*
 
-*Warning: ~2.9 GB downloads*
-* [Ubuntu 14.04.5 LTS][2] md5 `05501bd9aaa1b3041d21794f87166849`
-* [Ubuntu 16.04.1 LTS][3] md5 `25c66c8f6cd572ed10543087d3589f07`
+* [Ubuntu 14.04.5 LTS][2] (2458 MiB) sha1 [`85246701eec08bb6752c3e6080d8deb9e819c2dc`][7]
+* [Ubuntu 16.04.4 LTS][3] (3010 MiB) sha1 [`ae73cdcc965490151dd17e167d483a8cc62d0fd6`][8]
 ```
 User: taxonworks
 Pass: taxonworks
 ```
 
-**IMPORTANT**: Before using TaxonWorks please go to its directory (*~/Projects/taxonworks*) and execute `git pull && npm install`.
+**IMPORTANT**: Before using TaxonWorks please go to its directory (*~/Projects/taxonworks*) and execute `git pull && bundle && yarn`.
 
 [1]: https://www.virtualbox.org/wiki/Downloads
 [2]: http://vm.taxonworks.org/virtual_box/TW_Ubuntu_14_04_5.ova
-[3]: http://vm.taxonworks.org/virtual_box/TW_Ubuntu_16_04_1.ova
+[3]: http://vm.taxonworks.org/virtual_box/TW_Ubuntu_16_04_4.ova
 [4]: https://github.com/SpeciesFileGroup/taxonworks/issues/4
+[5]: https://github.com/SpeciesFileGroup/install_taxonworks/blob/master/development/native/ubuntu_14_04.md
+[6]: https://github.com/SpeciesFileGroup/install_taxonworks/blob/master/development/native/ubuntu_16_04.md
+[7]: https://raw.githubusercontent.com/SpeciesFileGroup/install_taxonworks/master/development/vm/TW_Ubuntu_14_04_5.sha1
+[8]: https://raw.githubusercontent.com/SpeciesFileGroup/install_taxonworks/master/development/vm/TW_Ubuntu_16_04_4.sha1
