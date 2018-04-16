@@ -52,7 +52,7 @@ sudo service postgresql restart
 
 Configure apt-get to point to newer Node packages
 ```
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y build-essential nodejs
 ```
 
@@ -83,7 +83,7 @@ git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
 
-When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal  It will look something like: `rvm install 2.4.2`.
+When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal. It will look something like: `rvm install 2.4.4`.
 
 ```
 cd ..
@@ -97,19 +97,9 @@ yarn
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
 
-rake db:create && rake db:schema:load && rake db:test:prepare
-```
+rake db:create && bin/rails db:environment:set RAILS_ENV=development
 
-In order to make feature tests work, currently you need either Google Chrome or Firefox not newer than version 47.0.1. Ubuntu comes with a much newer Firefox so we need to install a browser. Since Travis CI uses Firefox when testing the repo, we'll proceed to install it and configure TaxonWorks to use our downloaded version rather than the Ubuntu-provided one:
-```
-wget -O - "https://download.mozilla.org/?product=firefox-47.0.1&lang=en-US&os=linux64" | tar -jx -C ~
-sudo mv ~/firefox /opt/firefox-47.0.1
-cat > config/application_settings.yml <<EOF
-test:
-  selenium:
-    browser: 'firefox'
-    firefox_binary_path: '/opt/firefox-47.0.1/firefox'
-EOF
+rake db:schema:load && rake db:test:prepare
 ```
 
 Run the test suite, you may see some failures, but the vast majority should pass.
@@ -130,7 +120,7 @@ Deploy the development server
 
 Compile the Webpack development server use the following command:
 ```
-./bin/webpack-dev-server &
+./bin/webpack-dev-server
 ```
 
 On successful compilation of Webpack development server press CTRL+C, then to start Rails server use following command:
@@ -144,7 +134,7 @@ Optional
 
 If you want to populate the development server with some dummy accounts do this:
 ```
-rake db:seed
+rake db:seed project_id=123
 ```
 The username for the dummy account is `user@example.com` and password is `taxonworks`. Note, this account is a regular user and does not have admin privileges. For admin privileges use admin@example.com (same password).
 
@@ -173,6 +163,6 @@ If you get an error `FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaSc
 We recommend a npm package to do it automatically.
 
 ```
-npm install -g increase-memory-limit
+sudo npm install -g increase-memory-limit
 increase-memory-limit
 ```
