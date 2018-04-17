@@ -120,7 +120,7 @@ Deploy the development server
 
 Compile the Webpack development server use the following command:
 ```
-./bin/webpack-dev-server
+yarn webpack-dev-server
 ```
 
 On successful compilation of Webpack development server press CTRL+C, then to start Rails server use following command:
@@ -154,15 +154,3 @@ See also
 * [tuning_postgres_for_development.md][1]
 
 [1]: https://github.com/SpeciesFileGroup/install_taxonworks/blob/master/development/native/tuning_postgres_for_development.md
-
-## Troubleshooting
-
-### Webpack out of memory
-
-If you get an error `FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory` increase the memory size for node.
-We recommend a npm package to do it automatically.
-
-```
-sudo npm install -g increase-memory-limit
-increase-memory-limit
-```
