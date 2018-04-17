@@ -7,7 +7,7 @@ Virtual machines are configured up to, but not including the `rake db:seed` stag
 *Available VMs*
 
 * [Ubuntu 14.04.5 LTS][2] (2458 MiB) sha1 [`85246701eec08bb6752c3e6080d8deb9e819c2dc`][7]
-* [Ubuntu 16.04.4 LTS][3] (3010 MiB) sha1 [`ae73cdcc965490151dd17e167d483a8cc62d0fd6`][8]
+* [Ubuntu 16.04.4 LTS][3] (3084 MiB) sha1 [`ea00feb8ac0f8fcd57b290ac82ffdc96e5a63965`][8]
 ```
 User: taxonworks
 Pass: taxonworks
