@@ -4,7 +4,7 @@
 
 You can quickly start developing or testing against the API with minimal configuration.  The following assumes you have [Docker](https://www.docker.com/get-docker) and its dependencies installed and running.
 * `git clone https://github.com/SpeciesFileGroup/taxonworks.git` - to clone repository in directory of your choice
-* `cd /path/to/taxonworks`
+* `cd taxonworks`
 * `docker-compose build`
 * `docker-compose up`
 *  browse to `127.0.0.1:3000` if you can see something similar to below in your terminal window:
