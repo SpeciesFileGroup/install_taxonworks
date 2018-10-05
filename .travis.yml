@@ -1,0 +1,10 @@
+sudo: required
+language: c
+compiler:
+- gcc
+services:
+- docker
+script:
+- git clone https://github.com/SpeciesFileGroup/taxonworks.git
+- cd taxonworks
+- docker-compose build
