@@ -9,5 +9,5 @@ script:
 - cd taxonworks
 - docker-compose build
 - echo "$DOCKER_PASSWORD" > docker login -u "$DOCKER_USERNAME" --password-stdin 
-- docker push taxonworks_app:latest
-- docker push taxonworks_webpack:latest
+- docker push jhpoelen/taxonworks_app:latest
+- docker push jhpoelen/taxonworks_webpack:latest
