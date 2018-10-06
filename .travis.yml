@@ -10,5 +10,5 @@ script:
 - docker-compose build
 - echo "$DOCKER_PASSWORD" > docker login -u "$DOCKER_USERNAME" --password-stdin 
 - docker images
-- docker push jhpoelen/taxonworks_app:latest
-- docker push jhpoelen/taxonworks_webpack:latest
+- docker tag taxonworks_app:latest jhpoelen/taxonworks:dev
+- docker push jhpoelen/taxonworks:dev
