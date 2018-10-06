@@ -8,7 +8,7 @@ script:
 - git clone https://github.com/SpeciesFileGroup/taxonworks.git
 - cd taxonworks
 - docker-compose build
-- echo "$DOCKER_PASSWORD" > docker login -u "$DOCKER_USERNAME" --password-stdin 
-- docker images
-- docker tag taxonworks_app:latest jhpoelen/taxonworks:dev
-- docker push jhpoelen/taxonworks:dev
+#- echo "$DOCKER_PASSWORD" > docker login -u "$DOCKER_USERNAME" --password-stdin 
+#- docker images
+#- docker tag taxonworks_app:latest jhpoelen/taxonworks:dev
+#- docker push jhpoelen/taxonworks:dev
