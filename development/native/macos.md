@@ -76,7 +76,7 @@ This installs the Ruby version currently being used, and makes it the default.  
 
 Now it is time to install the required gems and npm dependencies.  Inside the `taxonworks` directory do
 ```
-gem install bundle
+gem install bundler
 ```
 (You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so, execute `find /usr/local -name MagickCore.pc`, and use it in the following line: `PKG_CONFIG_PATH='<remove the file name and extension from what you got as a result of the 'find' line and use that>' gem install rmagick`)
 ```
