@@ -1,26 +1,25 @@
 # Overview
 
-* Ruby >~ 2.4.2
-* Webpack
+* Ruby >~ 2.5.1
+* [Vue.js](https://vuejs.org/)
 * Node
-* Rails 5.2 
-* PostgreSQL 9.5+ with postgis 2.2 extension
+* Webpack
+* Rails 5.2.1
+* PostgreSQL 10 with postgis 2.4.4 extension
 * ImageMagick 6
 * Rtesseract
-* Rbenv/RVM
-* [Vue.js](https://vuejs.org/)
 * jQuery
 
 * [Redis][4] (experimental use in batch imports)
 
 # Development tools
-The core team is using RubyMine and/or VIM, with [brew][3], RVM.  They use OS X and Ubuntu 16.04/14.04.
+
+The core team is using RubyMine and/or VIM, with [brew][3], RVM.  They use OS X and Ubuntu 16.04/14.04.  See other information on this repo.
 
 ## Production tools
 
-* Docker
+* Docker, our images at docker are at [https://hub.docker.com/r/sfgrp/taxonworks/](https://hub.docker.com/r/sfgrp/taxonworks/).
 * Kubernetes
-* Capistrano
 * Passenger
 * Nginx
 * Ubuntu 16.04
