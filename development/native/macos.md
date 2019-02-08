@@ -46,6 +46,7 @@ Now it is time to install the required gems and npm dependencies.  Inside the `t
 ```
 gem install bundler
 bundle
+npm install
 ```
 
 Create a postgres role for taxonworks
