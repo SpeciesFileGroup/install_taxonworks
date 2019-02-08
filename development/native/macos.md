@@ -9,45 +9,13 @@
  which the taxonworks repository will be cloned.
 
 ## Instructions
-Start by getting `Xcode` from the App Store, and install/open it.
 
-Next, open a terminal window. The following instructions should be executed within it.
-
-Install Homebrew - a package manager utility for macOS.
-
+* Start by getting `Xcode` from the App Store, and install/open it.
+* [Install Homebrew](https://brew.sh/)
+* [Install RVM](https://rvm.io/rvm/install)
+* Install postgis with brew `brew install postgis`, you'll want it to start the service on load, see `brew info postgis` if it doesn't load automatically, it should.
+* Install some other packages:
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-If/when prompted, take the action to continue to install. Follow through with the Homebrew install process. 
-
-After Homebrew, install RVM, the Ruby version manager. This consists of installing the GNU Privacy Guard (gnupg), getting the public key for RVM, and installing RVM. The particular invocation below also installs the latest stable version of Ruby.
-
-```
-brew install gnupg
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
-```
-You will need to get a new terminal window to make `rvm` available. 
-In this new terminal window, you should install the following brew packages.
-```
-brew install postgres
-```
-
-Set up PostgreSQL to start automatically. Run this:
-```
-brew services start postgres
-```
-or find or create your local LaunchAgents directory. Then, make a link to be executed when you log on. Last, launch the PostgreSql server for the first time.
-```
-mkdir -p ~/Library/LaunchAgents    # This may already exist.   
-ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-```
-You will need the postgres server running for some of the following instructions. 
-Continue `brew`ing required pieces...
-
-```
-brew install postgis
 brew install cmake
 brew install imagemagick@6
 brew link imagemagick@6 --force
