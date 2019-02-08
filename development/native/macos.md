@@ -77,11 +77,7 @@ This installs the Ruby version currently being used, and makes it the default.  
 Now it is time to install the required gems and npm dependencies.  Inside the `taxonworks` directory do
 ```
 gem install bundler
-```
-(You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so, execute `find /usr/local -name MagickCore.pc`, and use it in the following line: `PKG_CONFIG_PATH='<remove the file name and extension from what you got as a result of the 'find' line and use that>' gem install rmagick`)
-```
 bundle
-yarn
 ```
 
 Create a postgres role for taxonworks
@@ -153,6 +149,11 @@ export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.9-36/lib/pkgconfig
 ```
 
 To test succesfull install run `identify` in your terminal, if you get the help docs you should be ok.  If brew tells you the package is installed but `identify` does not work try `brew link imagemagick@6 --force`.
+
+## rmagick gem problem
+You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so, execute `find /usr/local -name MagickCore.pc`, and use it in the following line: 
+
+   PKG_CONFIG_PATH='<remove the file name and extension from what you got as a result of the 'find' line and use that>' gem install rmagick
 
 ### Proj4 error
 
