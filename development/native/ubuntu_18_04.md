@@ -168,6 +168,6 @@ You will have to create the database using postgresql console:
 
 ```
 sudo -u postgres psql
-create database mydb;
+create database taxonworks_development;
 grant all privileges on database taxonworks_development to taxonworks_development;
 ```
