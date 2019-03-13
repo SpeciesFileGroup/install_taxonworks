@@ -46,7 +46,7 @@ sudo -u postgres createuser -s -d -P taxonworks_development
 
 Change permissions for posgresql, you are changing 'peer' to 'trust' for the matched line.
 ```
-sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/9.5/main/pg_hba.conf
+sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/10/main/pg_hba.conf
 sudo service postgresql restart
 ```
 
