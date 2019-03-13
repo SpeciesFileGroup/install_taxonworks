@@ -1,4 +1,4 @@
-TaxonWorks development environment for Ubuntu 16.04
+TaxonWorks development environment for Ubuntu 18.04
 ===================================================
 
 Overview
@@ -29,14 +29,14 @@ Reopen a terminal.
 
 Add PostgreSQL source repository for apt-get.
 ```
-echo "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
+echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
 ```
 
 Install required packages.
 ```
-sudo apt-get install -y postgresql-9.5 postgresql-contrib-9.5 libgeos-dev libproj-dev postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-2.2-scripts libpq-dev cmake imagemagick libmagickwand-dev git meld curl
+sudo apt-get install -y postgresql-10 postgresql-contrib-10 libgeos-dev libproj-dev postgresql-10-postgis-2.4 postgresql-10-postgis-2.4-scripts libpq-dev cmake imagemagick libmagickwand-dev git meld curl
 ```
 
 When prompted do not supply a password. See below, the password must match config/database.yml if provided.
@@ -54,6 +54,7 @@ Configure apt-get to point to newer Node packages
 ```
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y build-essential nodejs
+sudo apt-get install npm
 ```
 
 Install Yarn
@@ -66,7 +67,7 @@ sudo apt-get update && sudo apt-get install yarn
 
 Install RVM
 ```
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
@@ -154,3 +155,19 @@ See also
 * [tuning_postgres_for_development.md][1]
 
 [1]: https://github.com/SpeciesFileGroup/install_taxonworks/blob/master/development/native/tuning_postgres_for_development.md
+
+## Troubleshooting
+
+If you are getting the following message running `rake db:create`:
+
+```
+PG::ConnectionBad: FATAL: database "taxonworks_development" does not exist error.
+```
+
+You will have to create the database using postgresql console:
+
+```
+sudo -u postgres psql
+create database mydb;
+grant all privileges on database taxonworks_development to taxonworks_development;
+```
