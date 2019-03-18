@@ -1,5 +1,7 @@
 # TaxonWorks development environment for MacOS X 
 
+_Last tested March 19 2019_
+
 ## Overview
 
 1. Assumes a clean install of the OS.
