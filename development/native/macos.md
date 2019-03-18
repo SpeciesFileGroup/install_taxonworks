@@ -16,7 +16,6 @@
 * Install postgis with brew `brew install postgis`, you'll want it to start the service on load, see `brew info postgis` if it doesn't load automatically, it should.
 * Install some other packages:
 ```
-brew install cmake
 brew install imagemagick@6
 brew link imagemagick@6 --force
 brew install tesseract
