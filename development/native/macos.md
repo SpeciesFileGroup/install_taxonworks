@@ -127,7 +127,11 @@ You may have a problem installing the gem `rmagick` having to do with `Package M
 
 ### Proj4 error
 
-If you see an error regarding Proj4 rebuilding it against the latest rgeo-proj4 should resolve the issue, execution order matters! 
+This is now a known error for postgis 11.2
+
+If you see an error regarding Proj4 rebuilding it against the latest rgeo-proj4 5.2.0 should resolve the issue, execution order matters! 
+
+See this issue for using 5.2.0 instead of brew's 6.0.0: https://github.com/rgeo/rgeo-proj4/issues/4.  Follow the instructions for the first two lines, you'll need to unlink as well likely (message from first tap command).  Then repeat below.
 
 ```
 gem uninstall rgeo
