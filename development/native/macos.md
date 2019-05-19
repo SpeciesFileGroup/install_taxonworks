@@ -15,7 +15,7 @@ _Last tested March 19 2019_
 * Start by getting `Xcode` from the App Store, and install/open it.
 * [Install Homebrew](https://brew.sh/)
 * [Install RVM](https://rvm.io/rvm/install)
-* Install postgis with brew `brew install postgis`, you'll want it to start the service on load, see `brew info postgis` if it doesn't load automatically, it should.
+* Install postgis with brew `brew install postgis`, you'll want it to start the service on load, see `brew info postgres` if it doesn't load automatically, it should.
 * Install some other packages:
 ```
 brew install imagemagick@6
