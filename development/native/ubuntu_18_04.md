@@ -52,9 +52,8 @@ sudo service postgresql restart
 
 Configure apt-get to point to newer Node packages
 ```
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y build-essential nodejs
-sudo apt-get install npm
 ```
 
 Install Yarn
@@ -73,7 +72,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 ```
 
 Configure your terminal to use RVM, in the menu bar of the terminal do this:
-`Edit -> Profile preferences -> Command -> click the option (turn on) 'Run command as login shell'`
+`Edit -> Preferences -> Command -> click the option (turn on) 'Run command as login shell'`
 
 Close the current terminal open a new one.
 
