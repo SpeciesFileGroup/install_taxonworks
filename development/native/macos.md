@@ -142,3 +142,7 @@ gem uninstall rgeo-proj4
 gem install rgeo-proj4
 bundle install
 ```
+
+### Imagemagick@6 with latest mojave
+
+Is fraught with problems. See [here](https://github.com/rmagick/rmagick/issues/1153#issuecomment-598203790).  Using the 'mv' allowed `rmagick` to successfully install.
