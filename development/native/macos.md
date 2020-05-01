@@ -15,9 +15,15 @@ _Last tested March 19 2019_
 * Start by getting `Xcode` from the App Store, and install/open it.
 * [Install Homebrew](https://brew.sh/)
 * [Install RVM](https://rvm.io/rvm/install)
-* Install postgis with brew `brew install postgis`, you'll want it to start the service on load, see `brew info postgres` if it doesn't load automatically, it should.
+* Download and install PostgreSQL 11.6 / PostGIS 2.5.3 from [Postgres.app](https://postgresapp.com/) 
+* Configure your $PATH to use the included command line tools (optional):
+```
+sudo mkdir -p /etc/paths.d &&
+echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
+```
 * Install some other packages:
 ```
+brew install https://raw.githubusercontent.com/SpeciesFileGroup/install_taxonworks/master/src/brew/proj.rb
 brew install imagemagick@6
 brew link imagemagick@6 --force
 brew install tesseract
