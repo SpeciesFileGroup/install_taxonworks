@@ -155,7 +155,9 @@ Is fraught with problems. See [here](https://github.com/rmagick/rmagick/issues/1
 
 ### idiosycratic bundle install problem
 
-bundle install results in the following sequence:Warning, new version of rvm available '1.29.10-next', you are using older version '1.29.4'. This produces
+bundle install results in the following sequence:
+Warning, new version of rvm available '1.29.10-next', you are using older version '1.29.4'.
+This produces
 Fetching source index from https://rubygems.org/
 /Users/jrichardflood/.rvm/rubies/ruby-2.7.1/lib/ruby/2.7.0/net/http.rb:1122: warning: The environment variable HTTP_PROXY is discouraged.  Use http_proxy.
 
