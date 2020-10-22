@@ -153,7 +153,7 @@ bundle install
 
 Is fraught with problems. See [here](https://github.com/rmagick/rmagick/issues/1153#issuecomment-598203790).  Using the 'mv' allowed `rmagick` to successfully install.
 
-### idiosycratic bundle install problem
+### idiosyncratic bundle install problem
 
 bundle install results in the following sequence:
 Warning, new version of rvm available '1.29.10-next', you are using older version '1.29.4'.
