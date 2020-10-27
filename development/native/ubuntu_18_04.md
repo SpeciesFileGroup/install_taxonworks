@@ -118,12 +118,12 @@ Now proceed ahead to deploy the development server.
 Deploy the development server
 ------------------------------
 
-Compile the Webpack development server use the following command:
+Webpack (must run in a separate terminal window -- use with caution)
 ```
-yarn webpack-dev-server
+./bin/webpack-dev-server
 ```
 
-On successful compilation of Webpack development server press CTRL+C, then to start Rails server use following command:
+To start Rails server use following command:
 ```
 rails s
 ```
