@@ -28,7 +28,6 @@ brew install imagemagick@6
 brew link imagemagick@6 --force
 brew install tesseract
 brew install node
-brew install yarn
 ```
 
 Close the terminal and open a new one. This will use the new environment created by the previous instructions.
