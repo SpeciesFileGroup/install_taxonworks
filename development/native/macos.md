@@ -31,10 +31,6 @@ brew install node
 brew install yarn
 ```
 
-Install `gnparser` from [here](https://gitlab.com/gogna/gnparser/-/releases).
-
-Close the terminal and open a new one. This will use the new environment created by the previous instructions.
-
 Download the source code from Github:
 
 ```
@@ -45,8 +41,8 @@ cd taxonworks
 
 At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the commands provided below in the terminal. It will look something like this (for more, e.g. to set as default [see here](https://rvm.io/rubies/default)):
 ```
-rvm install 2.5.1
-rvm --default 2.5.1
+rvm install 2.7.2
+rvm --default 2.7.2
 ```
 This installs the Ruby version currently being used, and makes it the default.  At this point,
  you can verify this with `rvm list` which will indicate all Ruby versions managed by RVM and their status.
