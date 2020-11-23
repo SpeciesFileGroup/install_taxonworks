@@ -9,15 +9,15 @@ Overview
 
 System Requirements (Recommended)
 ---------------------------------
-1. Memory: 4 GB RAM
-2. Storage: 20 GB (when testing with Sandbox data)
+1. Memory: 8 GB RAM
+2. Storage: 32 GB (when testing with Sandbox data)
 
 Installation Instructions
 -------------------------
 
 Open a terminal.
 ```
-sudo apt-get update && sudo apt-get dist-upgrade
+sudo apt update && sudo apt dist-upgrade
 ```
 
 Reboot the machine
@@ -36,17 +36,17 @@ sudo apt-get update
 
 Install required packages.
 ```
-sudo apt-get install -y postgresql-10 postgresql-contrib-10 libgeos-dev libproj-dev postgresql-10-postgis-2.4 postgresql-10-postgis-2.4-scripts libpq-dev cmake imagemagick libmagickwand-dev git meld curl
+sudo apt-get install -y postgresql-12 postgresql-contrib-12 libgeos-dev libproj-dev postgresql-12-postgis-3 postgresql-12-postgis-3-scripts libpq-dev cmake imagemagick libmagickwand-dev tesseract-ocr git meld curl
 ```
 
-When prompted do not supply a password. See below, the password must match config/database.yml if provided.
+When prompted do not supply a password. See below, the password must match `config/database.yml` if provided.
 ```
 sudo -u postgres createuser -s -d -P taxonworks_development
 ```
 
 Change permissions for posgresql, you are changing 'peer' to 'trust' for the matched line.
 ```
-sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/10/main/pg_hba.conf
+sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/12/main/pg_hba.conf
 sudo service postgresql restart
 ```
 
@@ -56,14 +56,6 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y build-essential nodejs
 ```
 
-Install Yarn
-```
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-sudo apt-get update && sudo apt-get install yarn
-```
-
 Install RVM
 ```
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
@@ -71,8 +63,8 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
-Configure your terminal to use RVM, in the menu bar of the terminal do this:
-`Edit -> Preferences -> Command -> click the option (turn on) 'Run command as login shell'`
+Configure your terminal to use RVM, in the menu bar of the terminal go to
+`Menu -> Preferences`. Under `Profiles` select your default profile (clean installation should list it as `Unnamed`). Then go to `Command` tab and check `Run command as login shell`.
 
 Close the current terminal open a new one.
 
@@ -83,12 +75,10 @@ git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
 
-When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal. It will look something like: `rvm install 2.5.1`.
+When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal. It will look something like: `rvm install 2.7.2`.
 
 ```
-cd ..
-cd taxonworks
-
+cd . # Refreshes rvm to pick up recently installed ruby above
 gem install bundler
 
 bundle
@@ -97,46 +87,45 @@ npm install
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
 
-rake db:create && bin/rails db:environment:set RAILS_ENV=development
+bundle exec rake db:create && bundle exec bin/rails db:environment:set RAILS_ENV=development
 
-rake db:schema:load && rake db:test:prepare
+bundle exec rake db:schema:load && bundle exec rake db:test:prepare
 ```
 
 Run the test suite, you may see some failures, but the vast majority should pass.
 ```
-rake 
+bundle exec rake
 ```
-
-*Corresponding VM is configured to this point.*
 
 If you receive any migration related errors when you run test suite, use the following command before proceeding ahead:
 ```
-rake db:migrate
+bundle exec rake db:migrate
 ```
 Now proceed ahead to deploy the development server.
 
 Deploy the development server
 ------------------------------
 
-Compile the Webpack development server use the following command:
+Before starting rails server it is recommended -but not strictly required- to start the Webpack development server first on a separate terminal so assets are rebuilt faster when developing:
 ```
-yarn webpack-dev-server
+npm run webpack-dev-server
 ```
+Alternatively you may run `bundle exec rails assets:precompile` (but any change you make will take longer to materialize when browsing).
 
-On successful compilation of Webpack development server press CTRL+C, then to start Rails server use following command:
+Start the web server with the following command: *(If you followed the recommendation above then wait for assets compilation to finish before proceeding)*
 ```
-rails s
+bundle exec rails s
 ```
-Navigate in your browser to 127.0.0.1:3000.  To stop the development server return to the terminal window and type `ctrl-c`. 
+Navigate in your browser to 127.0.0.1:3000.  To stop the development server return to the terminal window and type `ctrl-c`.
 
 Optional
 -------- 
 
 If you want to populate the development server with some dummy accounts do this:
 ```
-rake db:seed project_id=123
+bundle exec rake db:seed
 ```
-The username for the dummy account is `user@example.com` and password is `taxonworks`. Note, this account is a regular user and does not have admin privileges. For admin privileges use admin@example.com (same password).
+The username for the dummy account is `user@example.com` and password is `taxonworks`. Note, this account is a regular user and does not have admin privileges. For admin privileges use `admin@example.com` (same password).
 
 Required for development 
 ------------------------
@@ -157,7 +146,7 @@ See also
 
 ## Troubleshooting
 
-If you are getting the following message running `rake db:create`:
+If you are getting the following message running `bundle exec rake db:create`:
 
 ```
 PG::ConnectionBad: FATAL: database "taxonworks_development" does not exist error.
