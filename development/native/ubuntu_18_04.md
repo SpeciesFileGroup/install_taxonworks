@@ -63,8 +63,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
-Configure your terminal to use RVM, in the menu bar of the terminal go to
-`Menu -> Preferences`. Under `Profiles` select your default profile (clean installation should list it as `Unnamed`). Then go to `Command` tab and check `Run command as login shell`.
+Configure your terminal to use RVM, in the menu bar of the terminal do this: Edit -> Preferences -> Command -> click the option (turn on) 'Run command as login shell'
 
 Close the current terminal open a new one.
 
