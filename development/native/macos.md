@@ -31,6 +31,8 @@ brew install node
 brew install yarn
 ```
 
+Close the terminal and open a new one. This will use the new environment created by the previous instructions.
+
 Download the source code from Github:
 
 ```
