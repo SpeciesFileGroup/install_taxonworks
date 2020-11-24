@@ -51,10 +51,10 @@ kubectl config set-context $CONTEXT --namespace=tw
 
 The docker build uses `Dockerfile`.  Ultimately it will track the [master branch](https://github.com/SpeciesFileGroup/taxonworks/tree/master).
 
-Containers are found at [https://hub.docker.com/u/sfgrp/](https://hub.docker.com/u/sfgrp/). At present numerically tagged versions are production, and :dev is the development snapshot.  Neither is automatically updated yet.
+Containers are found at [https://hub.docker.com/u/sfgrp/](https://hub.docker.com/u/sfgrp/). At present numerically tagged versions are production, and :latest is the development snapshot.
 
-* `docker build --rm -t sfgrp/taxonworks:0.0.x .` 
-* `docker push sfgrp/taxonworks:0.0.x`
+* `docker build --rm -t sfgrp/taxonworks:0.14.x .` 
+* `docker push sfgrp/taxonworks:0.14.x`
 
 ## OS X notes
 
