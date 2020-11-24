@@ -1,4 +1,4 @@
-TaxonWorks development environment for Ubuntu 18.04
+TaxonWorks development environment for Ubuntu 20.04
 ===================================================
 
 Overview
@@ -29,7 +29,7 @@ Reopen a terminal.
 
 Add PostgreSQL source repository for apt-get.
 ```
-echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
+echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
 ```
@@ -63,7 +63,8 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
-Configure your terminal to use RVM, in the menu bar of the terminal do this: Edit -> Preferences -> Command -> click the option (turn on) 'Run command as login shell'
+Configure your terminal to use RVM, in the menu bar of the terminal go to
+`Menu -> Preferences`. Under `Profiles` select your default profile (clean installation should list it as `Unnamed`). Then go to `Command` tab and check `Run command as login shell`.
 
 Close the current terminal open a new one.
 
@@ -74,7 +75,7 @@ git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
 
-When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal. It will look something like: `rvm install 2.7.2`.
+When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal. It will look something like: `rvm install 2.7.1`.
 
 ```
 cd . # Refreshes rvm to pick up recently installed ruby above
