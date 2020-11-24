@@ -34,9 +34,13 @@ brew install node
 
 Close the terminal and open a new one. This will use the new environment created by the previous instructions.
 
-Download the source code from Github:
+Clone (download) the source code from Github:
+Navigate to the directory you want your TaxonWorks folder in (change directory as appropriate, here we have a `src` folder in the Users' home:
 ```
-cd src  # or wherever you otherwise elected to put the project source code
+cd ~/src
+```
+Then:
+```
 git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
