@@ -12,11 +12,13 @@ _Last tested March 19 2019_
 
 ## Instructions
 
+_Do not skip steps.  See the Troubleshooting section if you hit errors, particularly with proj related issues._
+
 * Start by getting `Xcode` from the App Store, and install/open it.
 * [Install Homebrew](https://brew.sh/)
 * [Install RVM](https://rvm.io/rvm/install)
 * Download and install PostgreSQL 11.6 / PostGIS 2.5.3 from [Postgres.app](https://postgresapp.com/) 
-* Configure your $PATH to use the included command line tools (optional):
+* _Optional_: Configure your $PATH to use the command line tools in Postgres.app:
 ```
 sudo mkdir -p /etc/paths.d &&
 echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
@@ -33,7 +35,6 @@ brew install node
 Close the terminal and open a new one. This will use the new environment created by the previous instructions.
 
 Download the source code from Github:
-
 ```
 cd src  # or wherever you otherwise elected to put the project source code
 git clone https://github.com/SpeciesFileGroup/taxonworks.git
@@ -104,15 +105,21 @@ The username for the dummy account is `user@example.com` and password is `taxonw
 
 ## Troubleshooting
 
-### Webpack out of memory
+_Errors are listed in percieved likelihood of being hit_
 
-If you get an error `FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory` increase the memory size for node.
-We recommend a npm package to do it automatically.
+### brew install proj
 
+When this line fails:
 ```
-npm install -g increase-memory-limit
-increase-memory-limit
+brew install https://raw.githubusercontent.com/SpeciesFileGroup/install_taxonworks/master/src/brew/proj.rb
 ```
+Open a new text document.  Copy the contents of `https://raw.githubusercontent.com/SpeciesFileGroup/install_taxonworks/master/src/brew/proj.rb` into the document.  Save it (e.g. named `proj.rb`  Navigate to the location of the document then do:
+```
+brew install proj.rb
+```
+### Random gems failing
+
+Inside the TaxonWorks directory rebuild all your gems with `bundle pristine` 
 
 ### Error regarding rmagick
 
@@ -126,12 +133,21 @@ export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.9-36/lib/pkgconfig
 
 To test succesfull install run `identify` in your terminal, if you get the help docs you should be ok.  If brew tells you the package is installed but `identify` does not work try `brew link imagemagick@6 --force`.
 
-## rmagick gem problem
-You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so, execute `find /usr/local -name MagickCore.pc`, and use it in the following line: 
+### Imagemagick@6 with Mojave
+May be an issue. See [here](https://github.com/rmagick/rmagick/issues/1153#issuecomment-598203790).  Using the 'mv' allowed `rmagick` to successfully install.
 
-   PKG_CONFIG_PATH='<remove the file name and extension from what you got as a result of the 'find' line and use that>' gem install rmagick
+## rmagick gem "MagickCore was not found"
+You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so so:
+```
+find /usr/local -name MagickCore.pc`
+```
+and use the result in the following line: 
+```
+PKG_CONFIG_PATH='<remove the file name and extension from what you got as a result of the 'find' line and use that>' gem install rmagick
+```
 
 ### Proj4 error
+_Error is deprecated and should no longer be hit._
 
 This is now a known error for postgis 11.2
 
@@ -146,26 +162,9 @@ gem install rgeo-proj4
 bundle install
 ```
 
-### Imagemagick@6 with latest mojave
-
-Is fraught with problems. See [here](https://github.com/rmagick/rmagick/issues/1153#issuecomment-598203790).  Using the 'mv' allowed `rmagick` to successfully install.
-
 ### RVM out of date on `bundle install`
-
-bundle install results in the following sequence:
+If bundle install results in the following sequence:
 ```
 Warning, new version of rvm available '1.29.10-next', you are using older version '1.29.4'.
 ```
-
-This produces
-
-```
-Fetching source index from https://rubygems.org/
-/Users/jrichardflood/.rvm/rubies/ruby-2.7.1/lib/ruby/2.7.0/net/http.rb:1122: warning: The environment variable HTTP_PROXY is discouraged.  Use http_proxy.
-```
-
-```
-Retrying fetcher due to error (2/4): Net::HTTPServerException 404 "Not Found"
-/Users/jrichardflood/.rvm/rubies/ruby-2.7.1/lib/ruby/2.7.0/net/http.rb:1122: warning: The environment variable HTTP_PROXY is discouraged.  Use http_proxy.
-so no fetches occur.  Attempts to update rvm were also unsuccessful.
-```
+If the upgrade sequence documented on `rvm` fails just nuke your environment (see `implode` commands) then redo rvm and gem related instructions above.
