@@ -124,7 +124,7 @@ rake db:migrate RAILS_ENV=test
 rspec
 ```
 
-The tests should finish in 30-60 minuts.
+On my laptop tests finished in 31 minute.
 
 ## Setup a development environment
 
@@ -141,4 +141,3 @@ code .
 VS Code will start a network bridge to WSL2 Linux behind the scene and will
 make it possible to develop and debug code. The terminal in the VS Code should
 also natively run Linux.
-
