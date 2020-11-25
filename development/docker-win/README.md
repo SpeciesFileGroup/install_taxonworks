@@ -31,7 +31,7 @@ section describes installation procedure for Windows 10 October 2020 edition.
    WSL2 does not have native support for graphical programs yet (it is
    planned).  However Visual Studio Code, a popular code editor, supports a
    transparent "bridge" to Linux from WSL. You can download it at
-   https://code.visualstudio.com/download
+   `https://code.visualstudio.com/download`
 
 ## Install WSL2
 
@@ -40,20 +40,20 @@ the following commands:
 
 * Enable WSL2
 
-    ```.bash
+    ```bash
     dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
     ```
 
 * Enable Virtual Machine Platform
 
-    ```.bash
+    ```bash
     dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
     ```
     Restart your computer.
 
 * Setup WDL v2 as default
 
-    ```.bash
+    ```bash
     wsl --set-default-version 2
     ```
 
@@ -76,11 +76,11 @@ need to install Docker one more time on WSL2 Linux.
 
 Now open Linux in Windows Terminal or its native terminal and try to run
 `docker` or `docker-compose` commands. If you get errors that tell you do not
-have enough privileges, run ``sudo vim /etc/group` and check that your account
+have enough privileges, run ``sudo vim /etc/group`` and check that your account
 is added to docker group. For example I set my account as `dimus` and the line
 about docker group looks like this for me:
 
-```.txt
+```txt
 ...
 docker:x:1001:dimus
 ...
@@ -93,16 +93,17 @@ work correctly.
 
 Go to an appropriate directory in your Linux terminal and run
 
-```.bash
+```bash
 git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 docker-compose build
 docker-compose up
 ```
 
-* browse to `127.0.0.1:3000` if you can see something similar to below in your terminal window:
+* browse to `127.0.0.1:3000` if you can see something similar to below in
+  your terminal window:
 
-    ```
+    ```bash
     webpack_1  | webpack: Compiled successfully.
     ```
 
@@ -119,7 +120,7 @@ docker-compose exec run bash
 
 From the inside of the container run:
 
-```
+```bash
 rake db:migrate RAILS_ENV=test
 rspec
 ```
@@ -134,10 +135,10 @@ taxonworks code.
 If you prefer a graphical interface of Visual Studio code you can launch is by
 simply going inside of the taxonwork directory and running
 
-```
+```bash
 code .
 ```
 
 VS Code will start a network bridge to WSL2 Linux behind the scene and will
-make it possible to develop and debug code. The terminal in the VS Code should
-also natively run Linux.
+make it possible to develop and debug code. The terminal in the VS Code will
+also run Linux.
