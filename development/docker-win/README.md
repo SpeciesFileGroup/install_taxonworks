@@ -13,7 +13,7 @@ to set everything up starting with enabling `WSL2` on Windows 10.
 ## Preparation
 
 Note: The installation procedure changes with time while `WSL2` matures. This
-section describes installation procedure for Windows 10 Ocrober 2020 edition.
+section describes installation procedure for Windows 10 October 2020 edition.
 
 * Run all Windows updates to make sure you are at the latest Windows 10 version.
 
@@ -30,7 +30,7 @@ section describes installation procedure for Windows 10 Ocrober 2020 edition.
 
    WSL2 does not have native support for graphical programs yet (it is
    planned).  However Visual Studio Code, a popular code editor, supports a
-   transparent "bridge" to Linus from WSL. You can download it at
+   transparent "bridge" to Linux from WSL. You can download it at
    https://code.visualstudio.com/download
 
 ## Install WSL2
@@ -57,7 +57,7 @@ the following commands:
     wsl --set-default-version 2
     ```
 
-## Install Linus Distro
+## Install Linux Distro
 
 There are several Linux distros available for WSL2, in our example we
 use Ubuntu 20.04.
