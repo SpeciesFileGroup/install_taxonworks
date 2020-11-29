@@ -14,7 +14,7 @@
 
 # Development tools
 
-The core team is using RubyMine and/or VIM, with [brew][3], RVM.  They use OS X and Ubuntu 16.04/14.04.  See other information on this repo.
+The core team is using RubyMine and/or VIM, with [brew][3], RVM.  They use OS X and Ubuntu 18.04/20.04.  See other information on this repo.
 
 ## Production tools
 
@@ -22,7 +22,7 @@ The core team is using RubyMine and/or VIM, with [brew][3], RVM.  They use OS X 
 * Kubernetes
 * Passenger
 * Nginx
-* Ubuntu 16.04
+* Ubuntu 18.04
 
 [2]: http://rvm.io
 [3]: http://brew.sh/
