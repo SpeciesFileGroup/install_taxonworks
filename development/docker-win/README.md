@@ -67,6 +67,13 @@ see it appearing in a separate terminal this time. You can customize it right
 in the terminal, or you can close it, and reopen it in `Windows Terminal`,
 where it will appear now as an option.
 
+Once Ubuntu 20.04 is installed, open it in the Windows Terminal, run:
+
+```bash
+sudo apt update
+sudo apt dist-upgrade
+```
+
 ## Install Docker Desktop for Windows 10
 
 Download installer for Docker Desktop from the [Docker
