@@ -1,14 +1,14 @@
 # Overview
 
-* Ruby >~ 2.5.1
+* Ruby 2.7.2
 * [Vue.js](https://vuejs.org/)
 * Node
 * Webpack
-* Rails 5.2.1
+* Rails 6.0.x
 * PostgreSQL 10 with postgis 2.4.4 extension
 * ImageMagick 6
 * Rtesseract
-* jQuery
+* jQuery (legacy code)
 
 * [Redis][4] (experimental use in batch imports)
 
