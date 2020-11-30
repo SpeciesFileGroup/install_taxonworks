@@ -26,12 +26,33 @@ section describes installation procedure for Windows 10 October 2020 edition.
 
     To install it, open `Windows Store` app and search for `Windows Terminal`.
 
+    To make Linux experience more convenient (for example starting from Linux
+    home directory on Ubuntu, or using ligatures after installing [Fira
+    Code](https://github.com/tonsky/FiraCode)) you can modify `Windows
+    Terminal` configuration (it is just a JSON text) similar to this
+    [example](win-term.json).
+
 * Install `Visual Studio Code` (optional)
 
    WSL2 does not have native support for graphical programs yet (it is
    planned).  However Visual Studio Code, a popular code editor, supports a
    transparent "bridge" to Linux from WSL. You can download it at
    `https://code.visualstudio.com/download`
+
+  `VS Code` has several useful plugins that I would recommend to install:
+
+  * Ruby: for Ruby language support.
+  * Ruby Solargraph: for adding "code intelligence" via Language Server
+    for Ruby -- Solargraph gem.
+  * WSL: for (almost) transparent work with WSL2 directories.
+  * Containers: for working with code transparently (almost) via
+    WSL and/or SSH
+  * Docker: simplifies interacting with docker containers (needed only
+     if Docker Desktop is also installed)
+
+  Some of these plugins are installed on windows side, some on the WSL2
+  side. Usually hints from `VS Code` allow to make correct decision where to
+  install what.
 
 ## Install WSL2
 
