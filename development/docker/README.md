@@ -1,10 +1,11 @@
 
+# Docker development environment for TaxonWorks
 
-# Development quick start
+## Quick start
 
-You can quickly start developing or testing against the API with minimal configuration.  The following assumes you have [Docker](https://www.docker.com/get-docker) and its dependencies installed and running, and, presently, an up to date version of [Nodejs](https://nodejs.org/en/download/).
+You can quickly start developing or testing against the API with minimal configuration. The following assumes you have [Docker](https://www.docker.com/get-docker) and its dependencies installed and running, and, presently, an up to date version of [Nodejs](https://nodejs.org/en/download/).
 
-* Install XCode tools
+* If using MacOS/OSX Install XCode tools
 * `git clone https://github.com/SpeciesFileGroup/taxonworks.git` - to clone repository in directory of your choice
 * `cd taxonworks`
 * `docker-compose build`
@@ -13,58 +14,49 @@ You can quickly start developing or testing against the API with minimal configu
     ```
     webpack_1  | webpack: Compiled successfully.
     ```
-* You should see the logon window. Minimally, you now need to _Create a user_ or _Restore a database dump_
+* You should see the logon window. 
 * Wait for a while if the logon window does not load not load quickly. 
 * Use `ctrl-c` or `docker-compose down` in another local terminal to shutdown
 
-# Overview
-* See [documentation for Docker](https://docs.docker.com/).
-* In TaxonWorks `docker-compose` is configured to use  [Dockerfile.development](https://raw.githubusercontent.com/SpeciesFileGroup/taxonworks/development/Dockerfile.development)
-* Commands in following sections assume you are running `docker-compose up` in another terminal.
+### Next steps
 
-## Shell into the app
-
-* `docker-compose exec app bash`
-
-## Create a user
-
-Assumes you want an otherwise empty database/application. See next section if you are looking for seeding the DB with pre-made data.
-
-* Shell into the app 
-* `bundle exec rails c`
-*  `User.create!(name: 'you', password: 'password', password_confirmation: 'password', self_created: true, is_administrator: true, email: 'user@example.com')`
-* `quit`
-
-## Database seed
-
-To seed the database use `docker-compose exec app bundle exec rails db:seed` (if you are already in app shell then `bundle exec rails db:seed`). This includes an admin and a non-admin user, which are `admin@example.com` and `user@example.com` respectively, both with password `taxonworks`.
+* Minimally, you now need to [Create a user from the console](https://github.com/SpeciesFileGroup/taxonworks_doc/blob/master/development/HOW-TO.md#create-a-user-from-the-console) or [Seed a project, users, and some data from the command line](https://github.com/SpeciesFileGroup/taxonworks_doc/blob/master/development/HOW-TO.md#seed-a-project-users-and-some-data-from-the-command-line) or _Restore a database dump_ (see below)
 
 ## Develop!
 
-* The container is mapped to the source on your local machine, what you see when you shell into the app is what is on your local file system.
-* To make changes simply edit the source that you cloned.
-* Changes are automatically applied and visible in the browser as they would be for the native environment.
-* In most cases you need not restart the server or redo `docker-compose up`. 
-* See the Rails documentation for more.
+### Overview
 
-## Use a debugger like byebug or pry
+* Commands in following sections assume you are running `docker-compose up` in another terminal.
+* To make changes simply edit the TaxonWorks source that you cloned into your local directory
+* Changes are automatically applied and visible in the browser as they would be for the native environment.
+* In most cases you need not restart the server or redo `docker-compose up` to see your changes, though there are some cases in which you will.
+
+### More on Docker
+
+* In TaxonWorks `docker-compose` is configured to use  [Dockerfile.development](https://raw.githubusercontent.com/SpeciesFileGroup/taxonworks/development/Dockerfile.development)
+* The container is mapped to the source on your local machine, what you see when you shell into the app is what is on your local file system.
+* See [documentation for Docker](https://docs.docker.com/).
+
+### Use a debugger like byebug or pry
 
 Two steps. Run docker-compose in daemon mode, then attach to the app. Server log/debugger entry point will appear in the window after requests.
 
 * `docker-compose up -d` (If you are already running `docker-compose up` stop it first)
 * `docker attach taxonworks_app_1` (Container name can be found with `docker ps`, but if app is running on taxonworks directory `taxonworks_app_1` is likely correct)
 
-## Stop a container
+### Stop a container
 
 Get the container id from `docker ps`
 
 * `docker stop 3dc4293eg17e`  
 
-# Database
+## Database
 
-The database persists across use.  By default it is *not* the same as database described in the "native" environment approach.
+The database persists across use (e.g. docker builds, up/down). By default it is *not* the same as database described in the "native" environment approach.
 
-## Drop and recreate the database to an empty state
+_TODO: move below to unified HOW TO in taxonworks_doc__
+
+### Drop and recreate the database to an empty state
 
 * Ensure the app is not running (you may stop it with `docker-compose stop app`), the database container needs to be running.
 * `docker-compose exec db psql -U postgres`
@@ -73,7 +65,7 @@ The database persists across use.  By default it is *not* the same as database d
 * `\q`
 * You may restart taxonworks now with `docker-compose start app`
 
-## Restore a database dump
+### Restore a database dump
 
 Assumes you have a prior export generated by `rake tw:db:dump`
 
@@ -82,14 +74,14 @@ Assumes you have a prior export generated by `rake tw:db:dump`
 * Depending on when the database was dumped restore errors about roles can be ignored, i.e. the process will "fail" but be successful.
 * You may restart taxonworks now with `docker-compose start app`
 
-# Troubleshooting
+## Troubleshooting
 
 ## docker & docker-compose show permission errors (Linux users)
 To fix this you may follow [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/), or use `sudo` on `docker` and `docker-compose` commands.
 
-## "docker-compose build" fails
+### "docker-compose build" fails
 
-### With a missmatched Ruby version
+#### With a missmatched Ruby version
 * Ensure your `ruby -v` version matches the version in the [`Gemfile`](https://github.com/SpeciesFileGroup/taxonworks/blob/development/Gemfile#L5).  You may need to update or install a new Ruby.
 
 ### `docker-compose build` fails after `RUN apt-add-repository ppa:brightbox/ruby-ng`
@@ -97,29 +89,29 @@ To fix this you may follow [Post-installation steps for Linux](https://docs.dock
 * Problem: It seems that sometimes the repository list update fails because of bad(?) internet connection. Difficult to replicate. 
 * Solution: Do nothing, just re-run `docker-compose build` again.
 
-## "docker-compose up" fails
+### "docker-compose up" fails
 
-### Migration related error
+#### Migration related error
 * Problem: Active Migration related error is observed in client browser after following installation process.
 * Solution: The problem is patched in latest version, if you're still observing it after updating local TaxonWorks repository,  re-open this [issue](https://github.com/SpeciesFileGroup/taxonworks/issues/250) with your problem.
 
-### With PG::ConnectionBad: could not connect to server
+#### With PG::ConnectionBad: could not connect to server
 * Problem: Likely you have `config/database.yml` already set up for your native local server or some other location that is not available
 * Solution: You can remove `config/database.yml` and let the startup process reconstruct it or make sure config for development environment is the same as `config/database.yml.docker.compose.example`
 
-### With "A server is already running"
+#### With "A server is already running"
 * If an app container is not shut down correctly (`docker-compose down`) it can leave the file `tmp/server.pid`
 * On the _local_ file system check to see if `/app/tmp/pids/server.pid` exists, if it does, delete it.
 
-### With `(Bundler::GemNotFound)` or Log reports `Gem not found`
+#### With `(Bundler::GemNotFound)` or Log reports `Gem not found`
 * Bring down the containers `docker-compose down`
 * Redo the build step `docker-compose build`
 
-## Windows related
+### Windows related
 
 * You may need to use `localhost` rather than `0.0.0.0` where applicable in database calls.
 
-## Cleanup old containers
+### Cleanup old containers
 
 *  Try `docker images` and `docker rmi <id>` to cleanup old images. 
 
