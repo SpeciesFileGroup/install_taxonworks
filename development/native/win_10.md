@@ -75,7 +75,7 @@ the following commands:
 
     Restart your computer.
 
-* Setup WDL v2 as default
+* Setup WSL v2 as default
 
     ```.bash
     wsl --set-default-version 2
