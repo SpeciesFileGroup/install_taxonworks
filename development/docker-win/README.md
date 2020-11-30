@@ -57,6 +57,51 @@ the following commands:
     wsl --set-default-version 2
     ```
 
+### WSL troubleshooting
+
+If something does not work, first open PowerShell and make sure you are running WSL v2, and now WSL v1
+
+```PowerShell
+wsl -l -v
+
+wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu-20.04           Running         2
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+```
+
+Here the command shows that Ubuntu-20.04 is running correctly, is the default distribution (has *), and runs WSL version 2.
+
+If you do have WSL2 installed, you will get report for every linux
+distribution you have if it is running correctly and what WSL version it has.
+If you have only WSL1 installed you will get an error message.
+
+Removing Linux distribution can be either done usual way via uninstall GUI
+that Windows provides (Ubuntu distro should appear there like a 'normal'
+app), or It can be done using PowerShell with `wslconfig` command
+
+```PowerShell
+wslconfig /l
+Windows Subsystem for Linux Distributions:
+Ubuntu-20.04 (Default)
+docker-desktop
+docker-desktop-data
+```
+
+To change WSL from v1 to v2 for a distribution (for example for Ubuntu-20.04)
+using PowerShell
+
+```PowerShell
+wsl --set-version Ubuntu-20.04 2
+```
+
+To remove Ubuntu-20.04 the command would be:
+
+```PowerShell
+wslconfig /u Ubuntu-20.04
+```
+
 ## Install Linux Distro
 
 There are several Linux distros available for WSL2, in our example we
