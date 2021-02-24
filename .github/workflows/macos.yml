@@ -11,19 +11,18 @@ jobs:
         os: [macos-10.15] # [macos-11.0, macos-10.15] # Big Sur not available yet
 
     steps:
-    - name: Install RVM
-      run: curl -sSL https://get.rvm.io | bash
-    - name: Install postgis
-      run: brew install postgis
-    - name: Install ImageMagick
-      run: brew install imagemagick
-    - name: Install tesseract
-      run: brew install tesseract
-    - name: Install Node.js
-      run: brew install node
-    - name: Checkout TaxonWorks source code
-      run: git clone https://github.com/SpeciesFileGroup/taxonworks.git .
-    - name: Install required ruby version
-      run: rvm install $(cat .ruby-version) && cd . && ruby -v
-    - name: Check ruby again
-      run: ruby -v
+    - name: Install script
+      run: |
+        set -e
+        curl -sSL https://get.rvm.io | bash
+        source /Users/runner/.rvm/scripts/rvm
+        rvm list
+        brew install postgis
+        brew install imagemagick
+        brew install tesseract
+        brew install node
+        git clone https://github.com/SpeciesFileGroup/taxonworks.git
+        cd taxonworks
+        rvm install $(cat .ruby-version)
+        cd .
+        ruby -v
