@@ -1,0 +1,23 @@
+name: MacOS
+on:
+  push:
+    branches:
+      - test-instructions
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+    - name: Install RVM
+      run: curl -sSL https://get.rvm.io | bash
+    - name: Install postgis
+      run: brew install postgis
+    - name: Install ImageMagick
+      run: brew install imagemagick
+    - name: Install tesseract
+      run: brew install tesseract
+    - name: Install Node.js
+      run: brew install node
+    - name: Checkout TaxonWorks source code
+      run: git clone https://github.com/SpeciesFileGroup/taxonworks.git && cd taxonworks
+    - name: Install required ruby version
+      run: rvm install $(cat .ruby-version) && cd . && ruby -v
