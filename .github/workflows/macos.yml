@@ -12,6 +12,8 @@ jobs:
 
     steps:
     - name: Install script
+      env:
+        NO_COVERAGE_REPORT: 1
       run: |
         curl -sSL https://get.rvm.io | bash
         source /Users/runner/.rvm/scripts/rvm
