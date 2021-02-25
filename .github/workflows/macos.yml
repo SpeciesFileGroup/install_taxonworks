@@ -16,7 +16,9 @@ jobs:
         set -x
         set -e
         curl -sSL https://get.rvm.io | bash
+        set +x
         source /Users/runner/.rvm/scripts/rvm
+        set -x
         rvm list
         brew install postgis
         brew install imagemagick
@@ -37,4 +39,5 @@ jobs:
         rake db:migrate
         rake db:test:prepare
         rake db:seed:development project_id=1
+        cp config/application_settings.yml.ci config/application_settings.yml
         rake
