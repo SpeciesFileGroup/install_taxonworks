@@ -16,6 +16,7 @@ jobs:
         set -x
         brew services list
         brew services restart -vvv postgresql
+        until pg_isready; do sleep 1; done
         createuser -s -d -w taxonworks_development # Replaced -P with -w since prompt cannot be answered in this context
         set -e
         curl -sSL https://get.rvm.io | bash
