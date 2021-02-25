@@ -14,7 +14,8 @@ jobs:
     - name: Install script
       run: |
         set -x
-        brew install postgresql
+        brew services list
+        brew services restart postgresql
         createuser -s -d -w taxonworks_development # Replaced -P with -w since prompt cannot be answered in this context
         set -e
         curl -sSL https://get.rvm.io | bash
