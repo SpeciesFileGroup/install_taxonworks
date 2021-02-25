@@ -14,25 +14,26 @@ jobs:
     - name: Install script
       run: |
         set -x
+        brew install postgresql
+        createuser -s -d -w taxonworks_development # Replaced -P with -w since prompt cannot be answered in this context
         set -e
         curl -sSL https://get.rvm.io | bash
-        set +x
         source /Users/runner/.rvm/scripts/rvm
         set -x
-        rvm list
         brew install postgis
         brew install imagemagick
         brew install tesseract
         brew install node
         git clone https://github.com/SpeciesFileGroup/taxonworks.git
         cd taxonworks
+        set +x
         rvm install $(cat .ruby-version)
+        set -x
         cd .
         ruby -v
         gem install bundler
         bundle
         npm install
-        createuser -s -d -w taxonworks_development # Replaced -P with -w since prompt cannot be answered in this context
         cp config/database.yml.example config/database.yml
         cp config/secrets.yml.example config/secrets.yml
         rake db:create
