@@ -13,6 +13,7 @@ jobs:
     steps:
     - name: Install script
       run: |
+        set -x
         set -e
         curl -sSL https://get.rvm.io | bash
         source /Users/runner/.rvm/scripts/rvm
@@ -26,3 +27,14 @@ jobs:
         rvm install $(cat .ruby-version)
         cd .
         ruby -v
+        gem install bundler
+        bundle
+        npm install
+        createuser -s -d -w taxonworks_development # Replaced -P with -w since prompt cannot be answered in this context
+        cp config/database.yml.example config/database.yml
+        cp config/secrets.yml.example config/secrets.yml
+        rake db:create
+        rake db:migrate
+        rake db:test:prepare
+        rake db:seed:development project_id=1
+        rake
