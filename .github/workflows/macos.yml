@@ -13,16 +13,12 @@ jobs:
     steps:
     - name: Install script
       run: |
-        set -x
-        brew services list
-        brew services restart -vvv postgresql
-        until pg_isready; do sleep 1; done
-        createuser -s -d -w taxonworks_development # Replaced -P with -w since prompt cannot be answered in this context
         set -e
         curl -sSL https://get.rvm.io | bash
         source /Users/runner/.rvm/scripts/rvm
         set -x
         brew install postgis
+        brew services restart postgresql
         brew install imagemagick
         brew install tesseract
         brew install node
@@ -36,6 +32,7 @@ jobs:
         gem install bundler
         bundle
         npm install
+        createuser -s -d -w taxonworks_development # Replaced -P with -w since prompt cannot be answered in this context
         cp config/database.yml.example config/database.yml
         cp config/secrets.yml.example config/secrets.yml
         rake db:create
