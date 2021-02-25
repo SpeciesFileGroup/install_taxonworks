@@ -13,10 +13,8 @@ jobs:
     steps:
     - name: Install script
       run: |
-        set -e
         curl -sSL https://get.rvm.io | bash
         source /Users/runner/.rvm/scripts/rvm
-        set -x
         brew install postgis
         brew services restart postgresql
         brew install imagemagick
@@ -24,9 +22,7 @@ jobs:
         brew install node
         git clone https://github.com/SpeciesFileGroup/taxonworks.git
         cd taxonworks
-        set +x
         rvm install $(cat .ruby-version)
-        set -x
         cd .
         ruby -v
         gem install bundler
