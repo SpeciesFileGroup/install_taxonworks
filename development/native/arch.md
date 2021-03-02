@@ -167,6 +167,36 @@ See also
 
 ## Troubleshooting
 
+### Selenium tests
+
+In order for selenium tests to work, it may be necessary to add the following config to the `taxonworks/config/application_settings.yml` file:
+
+```yml
+test:
+  selenium:
+    headless: false
+    browser: 'firefox'
+    firefox_binary_path: '/usr/bin/firefox'
+```
+
+
+### ImageMagick and RMagick
+
+If you get the following message:
+
+```
+Gem Load Error is: This installation of RMagick was configured with ImageMagick 7.0.10 but ImageMagick 7.0.11-1 is in use.
+```
+
+Uninstall rmagick and run bundle:
+
+```
+gem uninstall rmagick
+bundle
+```
+
+### Database doesn't exist
+
 If you are getting the following message running `bundle exec rake db:create`:
 
 ```
