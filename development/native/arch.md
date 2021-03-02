@@ -188,11 +188,10 @@ If you get the following message:
 Gem Load Error is: This installation of RMagick was configured with ImageMagick 7.0.10 but ImageMagick 7.0.11-1 is in use.
 ```
 
-Uninstall rmagick and run bundle:
+Reinstall rmagick:
 
 ```
-gem uninstall rmagick
-bundle
+bundle pristine rmagick
 ```
 
 ### Database doesn't exist
