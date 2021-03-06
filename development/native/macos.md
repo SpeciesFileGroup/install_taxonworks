@@ -1,6 +1,6 @@
 # TaxonWorks development environment for MacOS X 
 
-_Last tested March 19 2019_
+_Last tested February 25 2021 on MacOS Big Sur 11.2.1_
 
 ## Overview
 
@@ -17,17 +17,12 @@ _Do not skip steps.  See the Troubleshooting section if you hit errors, particul
 * Start by getting `Xcode` from the App Store, and install/open it.
 * [Install Homebrew](https://brew.sh/)
 * [Install RVM](https://rvm.io/rvm/install)
-* Download and install PostgreSQL 11.6 / PostGIS 2.5.3 from [Postgres.app](https://postgresapp.com/) 
-* _Optional_: Configure your $PATH to use the command line tools in Postgres.app:
-```
-sudo mkdir -p /etc/paths.d &&
-echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
-```
+
 * Install some other packages:
 ```
-brew install https://raw.githubusercontent.com/SpeciesFileGroup/install_taxonworks/master/src/brew/proj.rb
-brew install imagemagick@6
-brew link imagemagick@6 --force
+brew install postgis
+brew services restart postgresql
+brew install imagemagick
 brew install tesseract
 brew install node
 ```
@@ -111,16 +106,6 @@ The username for the dummy account is `user@example.com` and password is `taxonw
 
 _Errors are listed in percieved likelihood of being hit_
 
-### brew install proj
-
-When this line fails:
-```
-brew install https://raw.githubusercontent.com/SpeciesFileGroup/install_taxonworks/master/src/brew/proj.rb
-```
-Open a new text document.  Copy the contents of `https://raw.githubusercontent.com/SpeciesFileGroup/install_taxonworks/master/src/brew/proj.rb` into the document.  Save it (e.g. named `proj.rb`  Navigate to the location of the document then do:
-```
-brew install proj.rb
-```
 ### Random gems failing
 
 Inside the TaxonWorks directory rebuild all your gems with `bundle pristine` 
