@@ -8,7 +8,7 @@ You can quickly start developing or testing against the API with minimal configu
 * If using MacOS/OSX Install XCode tools
 * `git clone https://github.com/SpeciesFileGroup/taxonworks.git` - to clone repository in directory of your choice
 * `cd taxonworks`
-* `docker-compose build`
+* `docker-compose build --pull`
 * `docker-compose up`
 *  browse to `127.0.0.1:3000` if you can see something similar to below in your terminal window:
     ```
