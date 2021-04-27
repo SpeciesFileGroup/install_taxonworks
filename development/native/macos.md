@@ -56,10 +56,9 @@ bundle
 npm install
 ```
 
-Create a postgres role for taxonworks
+Create a postgres role for taxonworks (from terminal), and setup database config
 ```
 createuser -s -d -P taxonworks_development (requests password) <- provide alternative for existing user)
-
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
 ```
