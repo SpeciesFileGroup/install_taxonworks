@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - test-instructions
+  schedule:
+    - cron: '0 3 * * 6'  
 jobs:
   install:
     runs-on: ${{ matrix.os }}
