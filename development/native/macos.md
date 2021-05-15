@@ -1,6 +1,6 @@
 # TaxonWorks development environment for MacOS X 
 
-_Last tested February 25 2021 on MacOS Big Sur 11.2.1_
+_Last tested May 14 2021 on MacOS Big Sur 11.3.1_
 
 ## Overview
 
@@ -14,7 +14,6 @@ _Last tested February 25 2021 on MacOS Big Sur 11.2.1_
 
 _Do not skip steps.  See the Troubleshooting section if you hit errors, particularly with proj related issues._
 
-* Start by getting `Xcode` from the App Store, and install/open it.
 * [Install Homebrew](https://brew.sh/)
 * [Install RVM](https://rvm.io/rvm/install)
 
@@ -42,8 +41,8 @@ cd taxonworks
 
 At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the commands provided below in the terminal. It will look something like this (for more, e.g. to set as default [see here](https://rvm.io/rubies/default)):
 ```
-rvm install 2.7.2
-rvm --default 2.7.2
+rvm install 2.7.3
+rvm --default 2.7.3
 ```
 This installs the Ruby version currently being used, and makes it the default.  At this point,
  you can verify this with `rvm list` which will indicate all Ruby versions managed by RVM and their status.
