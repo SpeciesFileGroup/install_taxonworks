@@ -21,8 +21,8 @@ jobs:
         curl -sSL https://get.rvm.io | bash
         source /Users/runner/.rvm/scripts/rvm
         set -x
-        brew install proj
         brew install postgis
+        brew install proj # Force newer
         brew services restart postgresql
         brew install imagemagick
         brew install tesseract
