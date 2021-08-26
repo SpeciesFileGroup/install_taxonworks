@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-10.15] # [macos-11.0, macos-10.15] # Big Sur not available yet
+        os: [macos-11.0, macos-10.15]
 
     steps:
     - name: Install script
