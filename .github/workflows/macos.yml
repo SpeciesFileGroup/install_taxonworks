@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-11.0, macos-10.15]
+        os: [macos-11, macos-10.15]
 
     steps:
     - name: Install script
@@ -21,6 +21,7 @@ jobs:
         curl -sSL https://get.rvm.io | bash
         source /Users/runner/.rvm/scripts/rvm
         set -x
+        brew install proj
         brew install postgis
         brew services restart postgresql
         brew install imagemagick
