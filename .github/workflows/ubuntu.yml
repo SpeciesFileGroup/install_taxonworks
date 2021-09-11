@@ -49,4 +49,5 @@ jobs:
         cp config/secrets.yml.example config/secrets.yml
         bundle exec rake db:create && bundle exec bin/rails db:environment:set RAILS_ENV=development
         bundle exec rake db:migrate && bundle exec rake db:test:prepare
+        cp config/application_settings.yml.ci config/application_settings.yml
         bundle exec rake
