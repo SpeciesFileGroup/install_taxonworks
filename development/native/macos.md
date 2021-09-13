@@ -20,6 +20,7 @@ _Do not skip steps.  See the Troubleshooting section if you hit errors, particul
 * Install some other packages:
 ```
 brew install postgis
+brew install proj # Force newer
 brew services restart postgresql
 brew install imagemagick
 brew install tesseract
@@ -41,8 +42,8 @@ cd taxonworks
 
 At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the commands provided below in the terminal. It will look something like this (for more, e.g. to set as default [see here](https://rvm.io/rubies/default)):
 ```
-rvm install 2.7.3
-rvm --default 2.7.3
+rvm install 2.7.4
+rvm --default 2.7.4
 ```
 This installs the Ruby version currently being used, and makes it the default.  At this point,
  you can verify this with `rvm list` which will indicate all Ruby versions managed by RVM and their status.
