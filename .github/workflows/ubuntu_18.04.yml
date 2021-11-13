@@ -12,7 +12,7 @@ jobs:
   install:
     if: |
       (
-        github.event_name == 'schedule' ||
+        github.event_name == 'schedule' || github.event_name == 'pull_request' ||
         contains(github.event.head_commit.message, '[install all]') ||
         contains(github.event.head_commit.message, '[install ubuntu]') ||
         contains(github.event.head_commit.message, '[install ubuntu 18.04]')
