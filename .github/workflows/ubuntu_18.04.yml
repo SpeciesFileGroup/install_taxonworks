@@ -11,10 +11,12 @@ on:
 jobs:
   install:
     if: |
-      (github.event_name == 'schedule') ||
-      contains(github.event.head_commit.message, '[install all]') ||
-      contains(github.event.head_commit.message, '[install ubuntu]') ||
-      contains(github.event.head_commit.message, '[install ubuntu 18.04]')
+      (
+        github.event_name == 'schedule' ||
+        contains(github.event.head_commit.message, '[install all]') ||
+        contains(github.event.head_commit.message, '[install ubuntu]') ||
+        contains(github.event.head_commit.message, '[install ubuntu 18.04]')
+      )
 
     runs-on: ${{ matrix.os }}
     strategy:

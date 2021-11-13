@@ -11,9 +11,11 @@ on:
 jobs:
   install:
     if: |
-      (github.event_name == 'schedule') ||
-      contains(github.event.head_commit.message, '[install all]') ||
-      contains(github.event.head_commit.message, '[install macos]')
+      (
+        github.event_name == 'schedule' ||
+        contains(github.event.head_commit.message, '[install all]') ||
+        contains(github.event.head_commit.message, '[install macos]')
+      )
 
     runs-on: ${{ matrix.os }}
     strategy:
