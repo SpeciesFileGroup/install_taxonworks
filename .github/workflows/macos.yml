@@ -12,7 +12,7 @@ jobs:
   install:
     if: |
       (
-        github.event_name == 'schedule' || github.event_name == 'pull_request' ||
+        github.event_name == 'schedule' ||
         contains(github.event.head_commit.message, '[install all]') ||
         contains(github.event.head_commit.message, '[install macos]')
       )
@@ -39,6 +39,7 @@ jobs:
         brew install node
         git clone https://github.com/SpeciesFileGroup/taxonworks.git
         cd taxonworks
+        git checkout master
         rvm install $(cat .ruby-version)
         cd .
         ruby -v
