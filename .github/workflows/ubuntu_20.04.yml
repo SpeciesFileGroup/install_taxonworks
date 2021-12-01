@@ -1,9 +1,23 @@
 name: Ubuntu 20.04
 on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
   schedule:
-    - cron: '0 3 * * 6'  
+    - cron: '0 3 * * 6'
 jobs:
   install:
+    if: |
+      (
+        github.event_name == 'schedule' ||
+        contains(github.event.head_commit.message, '[install all]') ||
+        contains(github.event.head_commit.message, '[install ubuntu]') ||
+        contains(github.event.head_commit.message, '[install ubuntu 20.04]')
+      )
+
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
