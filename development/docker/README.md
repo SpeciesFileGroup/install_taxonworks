@@ -3,7 +3,7 @@
 
 ## Quick start
 
-You can quickly start developing or testing against the API with minimal configuration. The following assumes you have [Docker](https://www.docker.com/get-docker) and its dependencies installed and running, and, presently, an up to date version of [Nodejs](https://nodejs.org/en/download/).
+You can quickly start developing or testing against the API with minimal configuration. The following assumes you have [Docker](https://www.docker.com/get-docker) and its dependencies installed and running. If using Docker Desktop for MacOS/Windows we **strongly** suggest to increase memory to *at least* 4GB under "Resources" section in settings (you may not want to assign more than half of your system RAM).
 
 * If using MacOS/OSX Install XCode tools
 * `git clone https://github.com/SpeciesFileGroup/taxonworks.git` - to clone repository in directory of your choice
@@ -81,14 +81,6 @@ To fix this you may follow [Post-installation steps for Linux](https://docs.dock
 
 ### "docker-compose build" fails
 
-#### With a missmatched Ruby version
-* Ensure your `ruby -v` version matches the version in the [`Gemfile`](https://github.com/SpeciesFileGroup/taxonworks/blob/development/Gemfile#L5).  You may need to update or install a new Ruby.
-
-### `docker-compose build` fails after `RUN apt-add-repository ppa:brightbox/ruby-ng`
-
-* Problem: It seems that sometimes the repository list update fails because of bad(?) internet connection. Difficult to replicate. 
-* Solution: Do nothing, just re-run `docker-compose build` again.
-
 ### "docker-compose up" fails
 
 #### Migration related error
@@ -98,6 +90,9 @@ To fix this you may follow [Post-installation steps for Linux](https://docs.dock
 #### With PG::ConnectionBad: could not connect to server
 * Problem: Likely you have `config/database.yml` already set up for your native local server or some other location that is not available
 * Solution: You can remove `config/database.yml` and let the startup process reconstruct it or make sure config for development environment is the same as `config/database.yml.docker.compose.example`
+
+#### FATAL: database files are incompatible with server
+* This may happen if you had used to have a running docker-compose environment with a taxonworks prior to 0.22.3. To fix this problem you'll need to execute `docker-compose down` (**DO NOT** add `--volumes` param). Then you can restart the environment as usual. You'll notice that data will be migrated from legacy Postgres 10 to 12.
 
 #### With "A server is already running"
 * If an app container is not shut down correctly (`docker-compose down`) it can leave the file `tmp/server.pid`
