@@ -22,6 +22,7 @@ You can quickly start developing or testing against the API with minimal configu
 
 * Minimally, you now need to [Create a user from the console](https://github.com/SpeciesFileGroup/taxonworks_doc/blob/master/development/HOW-TO.md#create-a-user-from-the-console) or [Seed a project, users, and some data from the command line](https://github.com/SpeciesFileGroup/taxonworks_doc/blob/master/development/HOW-TO.md#seed-a-project-users-and-some-data-from-the-command-line) or _Restore a database dump_ (see below)
 
+* To run tests first setup the test database with `docker-compose exec app bundle exec rails db:test:prepare` and then run `docker-compose exec bundle exec rake`.
 ## Develop!
 
 ### Overview
