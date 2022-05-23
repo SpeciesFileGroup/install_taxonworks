@@ -84,7 +84,7 @@ You need to have two servers running:
 
 Webpack (must run in a separate terminal window -- use with caution)
 ```
-./bin/webpack-dev-server
+./bin/webpacker-dev-server
 ```
 Rails 
 ```

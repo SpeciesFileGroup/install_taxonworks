@@ -129,7 +129,7 @@ Deploy the development server
 
 Before starting rails server it is recommended -but not strictly required- to start the Webpack development server first on a separate terminal so assets are rebuilt faster when developing:
 ```
-npm run webpack-dev-server
+./bin/webpacker-dev-server
 ```
 Alternatively you may run `bundle exec rails assets:precompile` (but any change you make will take longer to materialize when browsing).
 
