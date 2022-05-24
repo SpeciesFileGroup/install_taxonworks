@@ -52,7 +52,7 @@ sudo service postgresql restart
 
 Configure apt-get to point to newer Node packages
 ```
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y build-essential nodejs
 ```
 
