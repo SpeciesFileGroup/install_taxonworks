@@ -75,7 +75,7 @@ git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
 ```
 
-When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal. It will look something like: `rvm install 3.0.2`.
+When you do `cd taxonworks` you will see a message regarding a particular version of Ruby.  Install that version of Ruby with the command provided in the terminal. It will look something like: `rvm install 3.1.2`.
 
 ```
 cd . # Refreshes rvm to pick up recently installed ruby above
