@@ -1,0 +1,64 @@
+name: Ubuntu 22.04
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: '0 3 * * 6'
+jobs:
+  install:
+    if: |
+      (
+        github.event_name == 'schedule' ||
+        contains(github.event.head_commit.message, '[install all]') ||
+        contains(github.event.head_commit.message, '[install ubuntu]') ||
+        contains(github.event.head_commit.message, '[install ubuntu 22.04]')
+      )
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-22.04]
+
+    steps:
+    - name: Install script
+      env:
+        NO_COVERAGE_REPORT: 1
+      run: |
+        sudo apt purge postgresql* postgis* -y # For CI only
+        set -e
+        set -x
+        sudo apt update -y && sudo apt dist-upgrade -y
+        echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
+        wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+        sudo apt-get update
+        sudo apt-get install -y postgresql-12 postgresql-contrib-12 libgeos-dev libproj-dev postgresql-12-postgis-3 postgresql-12-postgis-3-scripts libpq-dev cmake imagemagick libmagickwand-dev tesseract-ocr git meld curl
+        sudo -u postgres createuser -s -d -w taxonworks_development # Replaced -P with -w since prompt cannot be answered in this context
+        sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/12/main/pg_hba.conf
+        sudo service postgresql restart
+        curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+        sudo apt-get install -y build-essential nodejs
+        gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+        curl -sSL https://get.rvm.io | bash -s stable --ruby
+        source /home/runner/.rvm/scripts/rvm
+        mkdir Projects
+        cd Projects
+        git clone https://github.com/SpeciesFileGroup/taxonworks.git
+        cd taxonworks
+        git checkout master
+        rvm reload # For CI only
+        rvm install $(cat .ruby-version)
+        cd . # Refreshes rvm to pick up recently installed ruby above
+        ruby -v
+        gem install bundler
+        bundle
+        npm install
+        cp config/database.yml.example config/database.yml
+        cp config/secrets.yml.example config/secrets.yml
+        bundle exec rake db:create && bundle exec bin/rails db:environment:set RAILS_ENV=development
+        bundle exec rake db:migrate && bundle exec rake db:test:prepare
+        cp config/application_settings.yml.ci config/application_settings.yml
+        TMPDIR=$(pwd)/tmp bundle exec rake
