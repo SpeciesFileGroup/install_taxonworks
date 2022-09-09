@@ -29,10 +29,12 @@ jobs:
         NO_COVERAGE_REPORT: 1
       run: |
         sudo apt purge postgresql* postgis* -y # For CI only
-        curl -sL 'https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US' | \
-        sudo tar -xjf - -C /usr/bin # Also for CI only, regular Ubuntu Desktop install comes with Firefox from Snapcraft
         set -e
         set -x
+        curl -sL 'https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US' | \
+        sudo tar -xjf - -C /usr/bin # Also for CI only, regular Ubuntu Desktop install comes with Firefox from Snapcraft
+        export PATH=/usr/bin/firefox/:$PATH
+        which firefox
         sudo apt update -y && sudo apt dist-upgrade -y
         echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
         wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
