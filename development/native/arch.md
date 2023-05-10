@@ -209,3 +209,17 @@ sudo -u postgres psql
 create database taxonworks_development;
 grant all privileges on database taxonworks_development to taxonworks_development;
 ```
+
+### Database collation version mismatch
+
+If you are getting a database collation mismatch when restoring a database dump:
+
+```
+The database was created using collation version 2.36, but the operating system provides version 2.37.
+```
+
+It may be necessary to [re-initalize postgresql with a locale that doesn't depend on collations compiled with glibc](https://wiki.archlinux.org/title/PostgreSQL) with:
+
+```
+sudo -u postgres initdb --locale=C.UTF-8 --encoding=UTF8 -D /var/lib/postgres/data
+```
