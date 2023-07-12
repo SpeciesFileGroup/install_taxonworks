@@ -105,11 +105,11 @@ The username for the dummy account is `user@example.com` and password is `taxonw
 
 _Errors are listed in percieved likelihood of being hit_
 
-### Random gems failing
+#### Random gems failing
 
 Inside the TaxonWorks directory rebuild all your gems with `bundle pristine` 
 
-### Error regarding rmagick
+#### Error regarding rmagick
 
 rmagick currently requires a previous version of image magick (see the @7 above).
 If you an error regarding rmagick, please run the next two commands and run bundle again:
@@ -121,10 +121,7 @@ export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@7/7.1.1-12/lib/pkgconfig
 
 To test succesfull install run `identify` in your terminal, if you get the help docs you should be ok.  If brew tells you the package is installed but `identify` does not work try `brew link imagemagick@7 --force`.
 
-### Imagemagick@7 with Mojave
-May be an issue. See [here](https://github.com/rmagick/rmagick/issues/1153#issuecomment-598203790).  Using the 'mv' allowed `rmagick` to successfully install.
-
-## rmagick gem "MagickCore was not found"
+#### rmagick gem "MagickCore was not found"
 You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so so:
 ```
 find /usr/local -name MagickCore.pc`
@@ -134,7 +131,34 @@ and update the correct imagemagick version in the following line:
 PKG_CONFIG_PATH='/usr/local/Cellar/imagemagick@7/7.1.1-12/lib/pkgconfig' gem install rmagick
 ```
 
-### Proj4 error
+### Depreciated
+
+#### Error regarding rmagick
+
+rmagick currently requires a previous version of image magick (see the @6 above).
+If you an error regarding rmagick, please run the next two commands and run bundle again:
+```
+brew uninstall imagemagick
+brew install imagemagick@6
+export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick@6/6.9.9-36/lib/pkgconfig
+```
+
+To test succesfull install run `identify` in your terminal, if you get the help docs you should be ok.  If brew tells you the package is installed but `identify` does not work try `brew link imagemagick@6 --force`.
+
+#### Imagemagick@6 with Mojave
+May be an issue. See [here](https://github.com/rmagick/rmagick/issues/1153#issuecomment-598203790).  Using the 'mv' allowed `rmagick` to successfully install.
+
+#### rmagick gem "MagickCore was not found"
+You may have a problem installing the gem `rmagick` having to do with `Package MagickCore was not found in the pkg-config search path.`. If so so:
+```
+find /usr/local -name MagickCore.pc`
+```
+and use the result in the following line: 
+```
+PKG_CONFIG_PATH='<remove the file name and extension from what you got as a result of the 'find' line and use that>' gem install rmagick
+```
+
+#### Proj4 error
 _Error is deprecated and should no longer be hit._
 
 This is now a known error for postgis 11.2
@@ -150,7 +174,7 @@ gem install rgeo-proj4
 bundle install
 ```
 
-### RVM out of date on `bundle install`
+#### RVM out of date on `bundle install`
 If bundle install results in the following sequence:
 ```
 Warning, new version of rvm available '1.29.10-next', you are using older version '1.29.4'.
