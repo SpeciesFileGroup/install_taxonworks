@@ -1,5 +1,6 @@
 name: Ubuntu 20.04
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
