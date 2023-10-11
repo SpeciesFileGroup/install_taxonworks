@@ -105,6 +105,12 @@ The username for the dummy account is `user@example.com` and password is `taxonw
 
 _Errors are listed in percieved likelihood of being hit_
 
+### Problems with certificates when running rvm install on Big Sur 11.7.9
+
+Running with [openssl prefix](https://github.com/rvm/rvm/issues/5240#issuecomment-1653046500) fixes the issue:
+
+rvm reinstall 3.2.2 --with-openssl-dir=$(brew --prefix openssl) --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix libyaml)  --disable-dtrace --disable-docs
+
 ### Random gems failing
 
 Inside the TaxonWorks directory rebuild all your gems with `bundle pristine` 
