@@ -36,7 +36,7 @@ sudo apt-get update
 
 Install required packages.
 ```
-sudo apt-get install -y postgresql-12 postgresql-contrib-12 libgeos-dev libproj-dev postgresql-12-postgis-3 postgresql-12-postgis-3-scripts libpq-dev cmake imagemagick libmagickwand-dev tesseract-ocr git meld curl
+sudo apt-get install -y postgresql-15 postgresql-contrib-15 libgeos-dev libproj-dev postgresql-15-postgis-3 postgresql-15-postgis-3-scripts libpq-dev cmake imagemagick libmagickwand-dev tesseract-ocr git meld curl gnupg ca-certificates
 ```
 
 When prompted do not supply a password. See below, the password must match `config/database.yml` if provided.
@@ -46,14 +46,25 @@ sudo -u postgres createuser -s -d -P taxonworks_development
 
 Change permissions for posgresql, you are changing 'peer' to 'trust' for the matched line.
 ```
-sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/12/main/pg_hba.conf
+sudo sed -i.bak 's/local\s*all\s*all\s*peer/local all all trust/'  /etc/postgresql/15/main/pg_hba.conf
 sudo service postgresql restart
+```
+
+Import Nodesource GPG key
+```
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 ```
 
 Configure apt-get to point to newer Node packages
 ```
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y build-essential nodejs
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+```
+
+Install Node
+```
+sudo apt-get update
+sudo apt-get install nodejs -y
 ```
 
 Install RVM
