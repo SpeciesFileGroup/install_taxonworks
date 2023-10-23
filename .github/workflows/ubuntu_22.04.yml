@@ -33,7 +33,7 @@ jobs:
         sudo apt purge postgresql* postgis* -y # For CI only
         set -e
         set -x
-        rm -rf /usr/bin/firefox
+        sudo rm -rf /usr/bin/firefox
         curl -sL 'https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US' | \
         sudo tar -xjf - -C /usr/bin # Also for CI only, regular Ubuntu Desktop install comes with Firefox from Snapcraft
         export PATH=/usr/bin/firefox/:$PATH
