@@ -107,8 +107,16 @@ To fix this you may follow [Post-installation steps for Linux](https://docs.dock
 
 * You may need to use `localhost` rather than `0.0.0.0` where applicable in database calls.
 
+### Some pages load fine, others may only load partially or not at all
+
+* On completion of `docker compose up` you may see `* Listening on http://0.0.0.0:3000` and your shell may even make that url a clickable link, but do not use it, you want `127.0.0.1:3000` or `localhost:3000` instead.
+
 ### Cleanup old containers
 
 *  Try `docker images` and `docker rmi <id>` to cleanup old images.
+
+### `404 Not Found` error at `127.0.0.1:3000`
+
+* This can happen after `docker compose build`; clear your browser cookies for that page and try again.
 
 
