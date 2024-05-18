@@ -52,6 +52,10 @@ Note that the server log scrolling by (and the log files in the `log` folder) in
 
 If you've never used byebug before, see [the documentation](https://www.rubydoc.info/gems/byebug/11.1.3), or briefly: insert a line `byebug` in your ruby code where you'd like to have a breakpoint, do something that causes that section of code to execute, and then you should see the byebug prompt in your terminal waiting for you to debug your code. For viewing data structures you may want to drop into pry (just type `pry`), which will nicely format and colorize its output: just enter the name of some variable. You'll need to `quit` out of pry to return to byebug to step, continue, etc.
 
+### Debugging Vue code using your browser
+
+The UI of many tasks is written using the Vue javascript framework. To debug Vue code, you can work directly in your browser's developer tools to set breakpoints and examine variables. There's also a Vue browser devtools extension available [here](https://devtools.vuejs.org/). It allows you to do things like click in the UI to find the component that defines that part of the interface, and to view the refs, props, and store associated with that component.
+
 ### Stop a container
 
 Get the container id from `docker ps`
