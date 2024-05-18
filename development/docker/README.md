@@ -62,6 +62,10 @@ Get the container id from `docker ps`
 
 * `docker stop 3dc4293eg17e`
 
+or to stop all running containers
+
+* `docker stop $(docker ps -q)`
+
 ## Database
 
 The database persists across use (e.g. docker builds, up/down). By default it is *not* the same as database described in the "native" environment approach.
