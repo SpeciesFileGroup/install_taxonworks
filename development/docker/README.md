@@ -38,12 +38,19 @@ You can quickly start developing or testing against the API with minimal configu
 * The container is mapped to the source on your local machine, what you see when you shell into the app is what is on your local file system.
 * See [documentation for Docker](https://docs.docker.com/).
 
-### Use a debugger like byebug or pry
+### Debugging Ruby code using byebug
 
-Two steps. Run docker compose in daemon mode, then attach to the app. Server log/debugger entry point will appear in the window after requests.
+First run docker compose in daemon mode:
+* `docker compose up -d` (If you are already running `docker compose up` stop it first with `docker compose down`)
 
-* `docker compose up -d` (If you are already running `docker compose up` stop it first)
+then attach to the app:
 * `docker attach taxonworks-app-1` (Container name can be found with `docker ps`, but if app is running on taxonworks directory `taxonworks-app-1` is likely correct)
+
+The scrolling server log and any debugger entry point will appear in the console window as TaxonWorks runs.
+
+Note that the server log scrolling by (and the log files in the `log` folder) includes database calls being made in response to your browser actions, which can also be helpful for debugging.
+
+If you've never used byebug before, see [the documentation](https://www.rubydoc.info/gems/byebug/11.1.3), or briefly: insert a line `byebug` in your ruby code where you'd like to have a breakpoint, do something that causes that section of code to execute, and then you should see the byebug prompt in your terminal waiting for you to debug your code. For viewing data structures you may want to drop into pry (just type `pry`), which will nicely format and colorize its output: just enter the name of some variable. You'll need to `quit` out of pry to return to byebug to step, continue, etc.
 
 ### Stop a container
 
