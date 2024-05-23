@@ -5,6 +5,8 @@
 
 You can quickly start developing or testing against the API with minimal configuration. The following assumes you have [Docker](https://www.docker.com/get-docker) and its dependencies installed and running. If using Docker Desktop for MacOS/Windows we **strongly** suggest to increase memory to *at least* 4GB under "Resources" section in settings (you may not want to assign more than half of your system RAM).
 
+> Instructions below refer to running `docker compose`, but if you're running an older version of docker you may need to use `docker-compose` instead.
+
 * If using MacOS/OSX Install XCode tools
 * `git clone https://github.com/SpeciesFileGroup/taxonworks.git` - to clone repository in directory of your choice
 * `cd taxonworks`

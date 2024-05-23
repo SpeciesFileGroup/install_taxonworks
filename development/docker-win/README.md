@@ -147,6 +147,9 @@ Hub](https://docs.docker.com/docker-for-windows/install/) and run the
 installation. Docker Desktop will also install hooks into WSL2, so you do not
 need to install Docker one more time on WSL2 Linux.
 
+> Instructions below refer to running `docker compose`, but if you're running
+an older version of docker you may need to use `docker-compose` instead.
+
 Now open Linux in Windows Terminal or its native terminal and try to run
 `docker` or `docker compose` commands. If you get errors that tell you do not
 have enough privileges, run ``sudo vim /etc/group`` and check that your account
