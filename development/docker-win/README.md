@@ -147,8 +147,11 @@ Hub](https://docs.docker.com/docker-for-windows/install/) and run the
 installation. Docker Desktop will also install hooks into WSL2, so you do not
 need to install Docker one more time on WSL2 Linux.
 
+> Instructions below refer to running `docker compose`, but if you're running
+an older version of docker you may need to use `docker-compose` instead.
+
 Now open Linux in Windows Terminal or its native terminal and try to run
-`docker` or `docker-compose` commands. If you get errors that tell you do not
+`docker` or `docker compose` commands. If you get errors that tell you do not
 have enough privileges, run ``sudo vim /etc/group`` and check that your account
 is added to docker group. For example I set my account as `dimus` and the line
 about docker group looks like this for me:
@@ -169,8 +172,8 @@ Go to an appropriate directory in your Linux terminal and run
 ```bash
 git clone https://github.com/SpeciesFileGroup/taxonworks.git
 cd taxonworks
-docker-compose build
-docker-compose up
+docker compose build
+docker compose up
 ```
 
 * browse to `127.0.0.1:3000` if you can see something similar to below in
@@ -183,12 +186,12 @@ docker-compose up
 * You should see the logon window. Minimally, you now need to _Create a user_
   or _Restore a database dump_
 * Wait for a while if the logon window does not load not load quickly.
-* Use `ctrl-c` or `docker-compose down` in another local terminal to shutdown
+* Use `ctrl-c` or `docker compose down` in another local terminal to shutdown
 
 ## Run the tests
 
 ```bash
-docker-compose exec run bash
+docker compose exec run bash
 ```
 
 From the inside of the container run:
