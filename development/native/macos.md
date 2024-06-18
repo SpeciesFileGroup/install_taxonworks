@@ -1,6 +1,6 @@
 # TaxonWorks development environment for MacOS X 
 
-_Last tested May 14 2021 on MacOS Big Sur 11.3.1_
+_Last tested Jun 18 2024 on MacOS Sonoma 14.5_
 
 ## Overview
 
@@ -42,8 +42,8 @@ cd taxonworks
 
 At this point you may see a message regarding a particular version of Ruby. Install that version of Ruby with the commands provided below in the terminal. It will look something like this (for more, e.g. to set as default [see here](https://rvm.io/rubies/default)):
 ```
-rvm install 3.1.2
-rvm --default 3.1.2
+rvm install 3.3.1
+rvm --default 3.3.1
 ```
 This installs the Ruby version currently being used, and makes it the default.  At this point,
  you can verify this with `rvm list` which will indicate all Ruby versions managed by RVM and their status.
